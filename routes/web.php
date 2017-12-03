@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('pages.home');
 });
-Route::get('/home', function () {
-    return view('home');
+Route::get('	home', function () {
+    return view('pages.home');
 });
+
 
 
 // --------------------
@@ -30,9 +31,6 @@ Route::group([
     // CRUD resources and other admin routes
     CRUD::resource('monster', 'MonsterCrudController');
 	CRUD::resource('party_plot', 'PartyPlotCrudController');
-	
-	CRUD::resource('slider', 'SliderCrudController');
-	
 
 });
 
@@ -42,3 +40,4 @@ Route::get('api/article/{id}', 'Api\ArticleController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

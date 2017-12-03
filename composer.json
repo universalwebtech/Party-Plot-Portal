@@ -17,6 +17,7 @@
         "backpack/newscrud": "^2.1",
         "backpack/permissionmanager": "^2.1",
         "seandowney/backpackgallerycrud": "^1.0"
+        "backpack/permissionmanager": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

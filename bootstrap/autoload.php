@@ -13,7 +13,10 @@ define('LARAVEL_START', microtime(true));
 | loading of any our classes "manually". Feels great to relax.
 |
 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> afb74324a513d78675d808ff783647cf91320d6d
 require __DIR__.'/../vendor/autoload.php';
 
 /*
