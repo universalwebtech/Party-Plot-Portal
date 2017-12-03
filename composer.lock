@@ -48,22 +48,22 @@
         },
         {
             "name": "backpack/backupmanager",
-            "version": "1.1.18",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "798e5e5ed4a7a8be116aff4d1cb26dc0f0a59b9a"
+                "reference": "1084bf5a7d0deac83a79becb4698684e541a8e42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/798e5e5ed4a7a8be116aff4d1cb26dc0f0a59b9a",
-                "reference": "798e5e5ed4a7a8be116aff4d1cb26dc0f0a59b9a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/1084bf5a7d0deac83a79becb4698684e541a8e42",
+                "reference": "1084bf5a7d0deac83a79becb4698684e541a8e42",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~5.1",
                 "php": ">=5.3.0",
-                "spatie/laravel-backup": "^3.1"
+                "spatie/laravel-backup": "^5.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*",
@@ -73,6 +73,11 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Backpack\\BackupManager\\BackupManagerServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -82,7 +87,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "proprietary"
             ],
             "authors": [
                 {
@@ -103,20 +108,20 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2017-07-06T05:34:38+00:00"
+            "time": "2017-12-02T10:02:06+00:00"
         },
         {
             "name": "backpack/base",
-            "version": "0.8.2",
+            "version": "0.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Base.git",
-                "reference": "a47899310e7ad3490b50d9cd7d64d1bdc88dbf08"
+                "reference": "9cae2b6b19e6b016a21d16d767469215188aaa40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/a47899310e7ad3490b50d9cd7d64d1bdc88dbf08",
-                "reference": "a47899310e7ad3490b50d9cd7d64d1bdc88dbf08",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Base/zipball/9cae2b6b19e6b016a21d16d767469215188aaa40",
+                "reference": "9cae2b6b19e6b016a21d16d767469215188aaa40",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +156,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "proprietary"
             ],
             "authors": [
                 {
@@ -167,7 +172,7 @@
                 "backpack",
                 "base"
             ],
-            "time": "2017-11-07T12:17:50+00:00"
+            "time": "2017-12-02T08:13:32+00:00"
         },
         {
             "name": "backpack/crud",
@@ -496,22 +501,20 @@
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "2.1.19",
+            "version": "2.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "c9604481896169d33855978c15bdb332f2a5fe6b"
+                "reference": "a3b652329deb2e0a5f527ee1a58379f81e27c640"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/c9604481896169d33855978c15bdb332f2a5fe6b",
-                "reference": "c9604481896169d33855978c15bdb332f2a5fe6b",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/a3b652329deb2e0a5f527ee1a58379f81e27c640",
+                "reference": "a3b652329deb2e0a5f527ee1a58379f81e27c640",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^3.2.0",
-                "illuminate/support": "~5.1",
-                "php": ">=5.3.0",
+                "backpack/crud": "^3.3.0",
                 "spatie/laravel-permission": "^1.4"
             },
             "require-dev": {
@@ -522,6 +525,11 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Backpack\\PermissionManager\\PermissionManagerServiceProvider"
+                    ]
                 }
             },
             "autoload": {
@@ -531,7 +539,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "proprietary"
             ],
             "authors": [
                 {
@@ -564,20 +572,20 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2017-08-11T05:27:33+00:00"
+            "time": "2017-12-02T11:55:22+00:00"
         },
         {
             "name": "backpack/settings",
-            "version": "2.0.25",
+            "version": "2.0.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/Settings.git",
-                "reference": "e155cb0e9a70eefea48141954ec753cac9df4162"
+                "reference": "f995d13061226f0ce6ee43c39e93d1c303e0e173"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/e155cb0e9a70eefea48141954ec753cac9df4162",
-                "reference": "e155cb0e9a70eefea48141954ec753cac9df4162",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Settings/zipball/f995d13061226f0ce6ee43c39e93d1c303e0e173",
+                "reference": "f995d13061226f0ce6ee43c39e93d1c303e0e173",
                 "shasum": ""
             },
             "require": {
@@ -628,7 +636,7 @@
                 "tabacitu",
                 "updivision"
             ],
-            "time": "2017-11-22T08:48:14+00:00"
+            "time": "2017-12-02T10:20:56+00:00"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -2613,24 +2621,24 @@
         },
         {
             "name": "spatie/db-dumper",
-            "version": "1.5.1",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/db-dumper.git",
-                "reference": "efdf41891a9dd4bb63fb6253044c9e51f34fff41"
+                "reference": "f951560361afa05422ecfe9b21bda3547737963e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/efdf41891a9dd4bb63fb6253044c9e51f34fff41",
-                "reference": "efdf41891a9dd4bb63fb6253044c9e51f34fff41",
+                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/f951560361afa05422ecfe9b21bda3547737963e",
+                "reference": "f951560361afa05422ecfe9b21bda3547737963e",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5|^7.0",
-                "symfony/process": "^2.7|^3.0"
+                "php": "^7.0",
+                "symfony/process": "^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8"
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "autoload": {
@@ -2659,41 +2667,51 @@
                 "mysqldump",
                 "spatie"
             ],
-            "time": "2016-06-14T13:23:01+00:00"
+            "time": "2017-11-23T23:41:11+00:00"
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "3.10.1",
+            "version": "5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "e17bed15f5b3f5e52421aa83d3608dc2d4d4d63b"
+                "reference": "e5bd4690aa004320d2f691ff8caaf68b203ba493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/e17bed15f5b3f5e52421aa83d3608dc2d4d4d63b",
-                "reference": "e17bed15f5b3f5e52421aa83d3608dc2d4d4d63b",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/e5bd4690aa004320d2f691ff8caaf68b203ba493",
+                "reference": "e5bd4690aa004320d2f691ff8caaf68b203ba493",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^5.1",
-                "illuminate/filesystem": "^5.1.20",
-                "illuminate/support": "^5.1",
-                "league/flysystem": "^1.0.8",
-                "php": "^5.5|^7.0",
-                "spatie/db-dumper": "^1.3",
-                "symfony/finder": "^2.7|^3.0"
+                "illuminate/console": "~5.5.0",
+                "illuminate/contracts": "~5.5.0",
+                "illuminate/events": "~5.5.0",
+                "illuminate/filesystem": "~5.5.0",
+                "illuminate/notifications": "~5.5.0",
+                "illuminate/support": "~5.5.0",
+                "league/flysystem": "^1.0.27",
+                "php": "^7.0",
+                "spatie/db-dumper": "^2.7",
+                "spatie/temporary-directory": "^1.1",
+                "symfony/finder": "^3.3"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "orchestra/testbench": "^3.2",
-                "phpunit/phpunit": "^4.8"
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "~3.5.0",
+                "phpunit/phpunit": "^6.2"
             },
             "suggest": {
-                "irazasyed/telegram-bot-sdk": "Allows notifications to be sent using Telegram Bot",
-                "maknz/slack": "Allows notifications to be sent via Slack"
+                "guzzlehttp/guzzle": "Allows notifications to be sent via Slack"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Backup\\BackupServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Spatie\\Backup\\": "src"
@@ -2722,7 +2740,7 @@
                 "laravel-backup",
                 "spatie"
             ],
-            "time": "2016-08-16T07:43:54+00:00"
+            "time": "2017-11-26T22:31:39+00:00"
         },
         {
             "name": "spatie/laravel-permission",
@@ -2783,6 +2801,52 @@
                 "spatie"
             ],
             "time": "2017-10-26T14:06:42+00:00"
+        },
+        {
+            "name": "spatie/temporary-directory",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/temporary-directory.git",
+                "reference": "e3da5b7a00c6610bc0b18480815fe09adf73383b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/e3da5b7a00c6610bc0b18480815fe09adf73383b",
+                "reference": "e3da5b7a00c6610bc0b18480815fe09adf73383b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\TemporaryDirectory\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Vanderbist",
+                    "email": "alex@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easily create, use and destroy temporary directories",
+            "homepage": "https://github.com/spatie/temporary-directory",
+            "keywords": [
+                "spatie",
+                "temporary-directory"
+            ],
+            "time": "2017-09-11T08:51:13+00:00"
         },
         {
             "name": "studio-42/elfinder",
@@ -3077,30 +3141,30 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.0",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "ca20b8f9ef149f40ff656d52965f240d85f7a8e4"
+                "reference": "6223fb2b68e7059e8d5843c0103999a84e7275cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ca20b8f9ef149f40ff656d52965f240d85f7a8e4",
-                "reference": "ca20b8f9ef149f40ff656d52965f240d85f7a8e4",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/6223fb2b68e7059e8d5843c0103999a84e7275cf",
+                "reference": "6223fb2b68e7059e8d5843c0103999a84e7275cf",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "conflict": {
-                "symfony/dependency-injection": "<3.3"
+                "symfony/dependency-injection": "<3.4"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0|~4.0",
-                "symfony/dependency-injection": "~3.3|~4.0",
-                "symfony/expression-language": "~2.8|~3.0|~4.0",
-                "symfony/stopwatch": "~2.8|~3.0|~4.0"
+                "symfony/config": "~3.4|~4.0",
+                "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/expression-language": "~3.4|~4.0",
+                "symfony/stopwatch": "~3.4|~4.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -3109,7 +3173,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -3136,7 +3200,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-09T14:14:31+00:00"
+            "time": "2017-11-09T17:30:28+00:00"
         },
         {
             "name": "symfony/finder",
@@ -4860,16 +4924,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.4.4",
+            "version": "6.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "562f7dc75d46510a4ed5d16189ae57fbe45a9932"
+                "reference": "24b708f2fd725bcef1c8153b366043381aa324f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/562f7dc75d46510a4ed5d16189ae57fbe45a9932",
-                "reference": "562f7dc75d46510a4ed5d16189ae57fbe45a9932",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/24b708f2fd725bcef1c8153b366043381aa324f2",
+                "reference": "24b708f2fd725bcef1c8153b366043381aa324f2",
                 "shasum": ""
             },
             "require": {
@@ -4883,12 +4947,12 @@
                 "phar-io/version": "^1.0",
                 "php": "^7.0",
                 "phpspec/prophecy": "^1.7",
-                "phpunit/php-code-coverage": "^5.2.2",
-                "phpunit/php-file-iterator": "^1.4.2",
+                "phpunit/php-code-coverage": "^5.2.3",
+                "phpunit/php-file-iterator": "^1.4.3",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^1.0.9",
-                "phpunit/phpunit-mock-objects": "^4.0.3",
-                "sebastian/comparator": "^2.0.2",
+                "phpunit/phpunit-mock-objects": "^5.0.4",
+                "sebastian/comparator": "^2.1",
                 "sebastian/diff": "^2.0",
                 "sebastian/environment": "^3.1",
                 "sebastian/exporter": "^3.1",
@@ -4914,7 +4978,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.4.x-dev"
+                    "dev-master": "6.5.x-dev"
                 }
             },
             "autoload": {
@@ -4940,20 +5004,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-11-08T11:26:09+00:00"
+            "time": "2017-12-02T05:36:24+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "4.0.4",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "2f789b59ab89669015ad984afa350c4ec577ade0"
+                "reference": "16b50f4167e5e85e81ca8a3dd105d0a5fd32009a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/2f789b59ab89669015ad984afa350c4ec577ade0",
-                "reference": "2f789b59ab89669015ad984afa350c4ec577ade0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/16b50f4167e5e85e81ca8a3dd105d0a5fd32009a",
+                "reference": "16b50f4167e5e85e81ca8a3dd105d0a5fd32009a",
                 "shasum": ""
             },
             "require": {
@@ -4966,7 +5030,7 @@
                 "phpunit/phpunit": "<6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.5"
             },
             "suggest": {
                 "ext-soap": "*"
@@ -4974,7 +5038,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "5.0.x-dev"
                 }
             },
             "autoload": {
@@ -4989,7 +5053,7 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sb@sebastian-bergmann.de",
+                    "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
             ],
@@ -4999,7 +5063,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2017-08-03T14:08:16+00:00"
+            "time": "2017-12-02T05:31:19+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
