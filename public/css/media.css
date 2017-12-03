@@ -1,0 +1,88 @@
+/* 01 General Media Query (iPhone, iPad, Small Tablet) (980px)
+=============================================================== */
+@media (max-width:980px) { /* CSS Code Here.... */ } 
+
+
+/* 02 iPad &amp; Small Tablet
+============================================================== */
+@media (min-width: 768px) and (max-width: 979px) {
+	
+/*** Global Classes CSS BOF ***/
+body { font-size:13px; }
+h1, h2, h3, h4, h5, h6 { line-height:normal; }
+.call .call_desc h4{font-size:14px !important;}
+.call .call_img img{max-width:80%;}
+.call .call_img{margin-right:0;}
+.filter_padding_0_last{padding-right:15px !important;}
+.service_contant .service .overlay h4{font-size:14px;}
+.service_title{font-size:16px;}
+.plot_head h4{font-size:18px;}
+.book{padding:5px 10px; font-size:14px;}
+footer .social li a{width:40px; height:40px; line-height:40px;}
+.contact_block h4{font-size:18px;}
+.nav > li > a{padding:10px 10px;}
+.call{padding:20px 15px;}
+}
+
+/* 03 All Mobile Device	
+============================================================== */
+@media (max-width: 767px) {
+	
+/*** Global Classes CSS BOF ***/
+body { font-size:13px; }
+.navbar-toggle{margin-top:25px;}
+.header_top{height:auto; padding:5px 0;}
+.header_top .user-links {text-align:center;}
+.social li.help a::after {right: -14px;top: -4px;}
+.navbar-nav.pull-right{float:left !important;}
+.social li{padding:0 10px;}
+.social.text-right{text-align:center;}
+.navbar-toggle{background:#00bdfd;}
+.navbar-toggle span{background:#fff;}
+.call{padding:10px 15px; width:100%; display:none;}
+.call .call_desc h4{font-size:20px;}
+.about{padding:50px 0 50px; display:inline-block; margin-top:90px;}
+.about_img{margin-top:20px;}
+.common-form .form-control { height: 40px;}
+.filter{margin:15px 0; margin-top:-70px;}
+.filter .panel{position:relative;}
+.filter_padding_0{padding-right:15px;}
+.filter .submit{height:40px; margin-top:15px;}
+.select::after {right:20px;}
+.filter .panel{margin-bottom:20px;}
+.hs-title-size-4{font-size:22px !important;}
+.service_title{font-size:16px;}
+.service_contant .service .overlay h4{ font-size:14px; margin:2px 0;}
+.service_contant .service .overlay h4:after{display:none;}
+.service_contant .service .overlay .view{border:1px solid #fff;border-radius:0;text-transform:uppercase; font-size:12px; padding:5px 10px;}
+.service_contant .service .overlay .text{left: 10%; position: absolute; top: 50%; transform: translate(-10%, -50%);}
+.service_contant .service .overlay p{margin:6px 0 6px;}
+.plot_head h4{font-size:14px; line-height:24px}
+.links{margin-top:20px;}
+.links h5{margin-bottom:15px;}
+.footer_bottom{text-align:center;}
+.brand .heading h5{line-height:normal;}
+.service_contant{padding:50px 0;}
+}
+/* 04 All Mobile Device
+============================================================== */
+@media (min-width:320px) and (max-width:480px) {
+
+}
+
+/* 05 iPad & Small Tablet Landscape
+============================================================== */
+@media (min-width: 979px) and (max-width: 1024px) { 
+		
+/*** Global Classes CSS BOF ***/
+body { font-size:13px; }
+.filter .submit{margin-top:23px;}
+
+
+
+}
+
+/* 06 Large Desktop
+============================================================== */
+@media (min-width: 1300px) {.call .call_desc h4{font-size:20px;}
+ } 
