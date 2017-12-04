@@ -35,6 +35,7 @@
           <li><a href="{{ backpack_url('page') }}"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
           <li><a href="{{ backpack_url('menu-item') }}"><i class="fa fa-list"></i> <span>Menu</span></a></li>
           <li><a href="{{ backpack_url('slider') }}"><i class="fa fa-list"></i> <span>Slider</span></a></li>
+          <li><a href="{{ backpack_url('advertisement') }}"><i class="fa fa-list"></i> <span>Advertisemen</span></a></li>
 
           <!-- Users, Roles Permissions -->
           <li class="treeview">
