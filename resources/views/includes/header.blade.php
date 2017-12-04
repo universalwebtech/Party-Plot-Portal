@@ -59,6 +59,20 @@
                                   <a href="javascript:;">Forgot your password?</a> </div>
                               </div>
                             </form>
+							
+							<form action="login" method="POST">
+                                {{ csrf_field() }} <input type="hidden" name="redirurl"
+                                    value="{{ $_SERVER['REQUEST_URI'] }}"> <label><b>Username</b></label>
+                                <input name="username"
+                                    class="w3-input w3-border w3-margin-bottom" type="text"
+                                    placeholder="Enter Username" required> <label><b>Password</b></label>
+                                <input class="w3-input w3-border w3-margin-bottom"
+                                    name="password" type="password" placeholder="Enter Password"
+                                    required> <input type="submit"
+                                    class="w3-btn w3-btn-block w3-green" value="Login"> <input
+                                    class="w3-check w3-margin-top" type="checkbox"
+                                    checked="checked"> Remember me
+                            </form>
                           </div>
                           <div class="tab-pane" id="Registration">
                             <form role="form" class="form-horizontal common-form">

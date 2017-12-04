@@ -31,6 +31,7 @@ Route::group([
     // CRUD resources and other admin routes
     CRUD::resource('monster', 'MonsterCrudController');
 	CRUD::resource('party_plot', 'PartyPlotCrudController');
+	CRUD::resource('slider', 'SliderCrudController');
 
 });
 
