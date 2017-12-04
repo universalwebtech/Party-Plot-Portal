@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Advertisement extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class Slider extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'slider';
+    protected $table = 'advertisement';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['title', 'desc', 'read_more', 'image'];
+    protected $fillable = ['title', 'desc', 'image'];
     // protected $hidden = [];
     // protected $dates = [];
 	
@@ -27,7 +27,7 @@ class Slider extends Model
 	public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $disk = "slider";
+        $disk = "advertisement";
         $destination_path = "uploads";
 
         // if the image was erased
@@ -43,7 +43,8 @@ class Slider extends Model
         if (starts_with($value, 'data:image'))
         {
             // 0. Make the image
-            $image = \Image::make($value);
+            //$image = \Image::make($value);
+			$image = \Image::make($value)->fit(172, 232);
             // 1. Generate a filename.
             $filename = md5($value.time()).'.jpg';
             // 2. Store the image on disk.
@@ -52,4 +53,5 @@ class Slider extends Model
             $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
         }
     }
+	
 }

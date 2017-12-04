@@ -7,7 +7,7 @@ use App\Http\Requests\SliderRequest as StoreRequest;
 use App\Http\Requests\SliderRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-class SliderCrudController extends CrudController
+class AdvertisementCrudController extends CrudController
 {
     public function setup()
     {
@@ -16,9 +16,9 @@ class SliderCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Slider');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/slider');
-        $this->crud->setEntityNameStrings('Slide', 'Slide');
+        $this->crud->setModel('App\Models\Advertisement');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/advertisement');
+        $this->crud->setEntityNameStrings('Advertisement', 'Advertisement');
 
         /*
         |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ class SliderCrudController extends CrudController
 
         // ------ CRUD COLUMNS
         $this->crud->addColumn('title'); // add a text column, at the end of the stack
-        $this->crud->addColumn('read_more'); // add a single column, at the end of the stack
+        //$this->crud->addColumn('read_more'); // add a single column, at the end of the stack
         // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
@@ -55,11 +55,7 @@ class SliderCrudController extends CrudController
 			'placeholder' => trans('backpack::pagemanager.content_placeholder'),
 		]);
 		
-		$this->crud->addField([
-            'name'  => 'read_more',
-            'label' => 'Read More',
-            'type'  => 'text',
-        ]);
+		
 		
 		$this->crud->addField([ // image
 			'label' => "Image",
@@ -68,7 +64,7 @@ class SliderCrudController extends CrudController
 			'upload' => true,
 			'crop' => false, // set to true to allow cropping, false to disable
 			'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
-			'prefix' => 'slider/' // in case you only store the filename in the database, this text will be prepended to the database value
+			'prefix' => 'advertisement/' // in case you only store the filename in the database, this text will be prepended to the database value
 		]);
 		
 		

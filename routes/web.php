@@ -32,6 +32,7 @@ Route::group([
     CRUD::resource('monster', 'MonsterCrudController');
 	CRUD::resource('party_plot', 'PartyPlotCrudController');
 	CRUD::resource('slider', 'SliderCrudController');
+	CRUD::resource('advertisement', 'AdvertisementCrudController');
 
 });
 

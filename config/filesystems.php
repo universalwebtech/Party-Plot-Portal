@@ -59,6 +59,24 @@ return [
             'root'   => public_path('uploads'),
         ],
 
+		'slider' => [ // used for Backpack/CRUD (in elFinder)
+            'driver' => 'local',
+            'root'   => public_path('slider'),
+			'visibility' => 'public',
+        ],
+		
+		'advertisement' => [ // used for Backpack/CRUD (in elFinder)
+            'driver' => 'local',
+            'root'   => public_path('advertisement'),
+			'visibility' => 'public',
+        ],
+		
+		'advertisement_thumb' => [ // used for Backpack/CRUD (in elFinder)
+            'driver' => 'local',
+            'root'   => public_path('advertisement/thumb'),
+			'visibility' => 'public',
+        ],
+		
         'backups' => [ // used for Backpack/BackupManager
             'driver' => 'local',
             'root'   => storage_path('backups'), // that's where your backups are stored by default: storage/backups
