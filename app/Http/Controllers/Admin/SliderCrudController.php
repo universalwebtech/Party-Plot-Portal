@@ -64,7 +64,7 @@ class SliderCrudController extends CrudController
 		$this->crud->addField([   // Browse
             'name'  => 'image',
             'label' => 'Image',
-            'type'  => 'image2',
+            'type'  => 'upload',
         ]);
 		
 		
