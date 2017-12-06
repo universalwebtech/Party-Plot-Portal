@@ -38,7 +38,7 @@ Route::group([
 
 Route::get('api/article', 'Api\ArticleController@index');
 Route::get('api/article/{id}', 'Api\ArticleController@show');
-
+Route::get('/', 'Admin\SliderCrudController@slider');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

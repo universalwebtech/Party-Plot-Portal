@@ -1,26 +1,28 @@
 <section id="home" class="home-section">
     <div class="hero-slider">
       <ul class="slides">
-        <li class="bg-dark-30 bg-dark bgdarkmg1 flex-active-slide">
+        @foreach ($name as $retrive)
+        <li class="bg-dark-30 bg-dark bgdarkmg1 flex-active-slide" style='background-image:url("../public/images/{{ $retrive->image }}")'>
           <div class="hs-caption">
             <div class="caption-content">
-              <div class="hs-title-size-1 mb-20">We Provide best</div>
+              <div class="hs-title-size-1 mb-20">{{ $retrive->title }}</div>
               <div class="hs-title-size-4  mb-30">LOREM IPSUM <span>DOLOR</span><br>
                 sit amet</div>
-              <div class="hs-title-size-1 font-alt mb-40">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-              <a href="#" class="section-scroll btn read_more">READ MORE</a></div>
+              <div class="hs-title-size-1 font-alt mb-40">{{ $retrive->desc }}</div>
+              <a href="#" class="section-scroll btn read_more">{{ $retrive->read_more }}</a></div>
           </div>
         </li>
-        <li class="bg-dark-30 bg-dark bgdarkmg2">
-          <div class="hs-caption">
-            <div class="caption-content">
-              <div class="hs-title-size-1 mb-20">We Provide best</div>
-              <div class="hs-title-size-4  mb-30">LOREM IPSUM <span>DOLOR</span> <br>
-                sit amet</div>
-              <div class="hs-title-size-1 font-alt mb-40">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-              <a href="#" class="section-scroll btn read_more">READ MORE</a></div>
-          </div>
-        </li>
+         @endforeach
+       <!--  <li class="bg-dark-30 bg-dark bgdarkmg2">
+         <div class="hs-caption">
+           <div class="caption-content">
+             <div class="hs-title-size-1 mb-20">We Provide best</div>
+             <div class="hs-title-size-4  mb-30">LOREM IPSUM <span>DOLOR</span> <br>
+               sit amet</div>
+             <div class="hs-title-size-1 font-alt mb-40">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+             <a href="#" class="section-scroll btn read_more">READ MORE</a></div>
+         </div>
+       </li> -->
       </ul>
       <div class="filter">
         <div class="container">

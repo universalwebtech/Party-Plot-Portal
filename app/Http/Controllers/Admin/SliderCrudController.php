@@ -95,6 +95,16 @@ class SliderCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
+    public function slider()
+    {
+      
+    $sliderData = Slider::all();
+   
+    $view = array(
+                  'name'=>$sliderData
+                );
+    return view('pages.home', $view);
+    }   
 
    
 }
