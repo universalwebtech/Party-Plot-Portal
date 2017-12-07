@@ -34,6 +34,7 @@ Route::group([
 	CRUD::resource('slider', 'SliderCrudController');
 	CRUD::resource('advertisement', 'AdvertisementCrudController');
     CRUD::resource('testimonial', 'TestimonialCrudController');
+    CRUD::resource('category', 'CategoryCrudController');
 
 });
 
@@ -41,6 +42,7 @@ Route::get('api/article', 'Api\ArticleController@index');
 Route::get('api/article/{id}', 'Api\ArticleController@show');
 Route::get('/', 'Admin\SliderCrudController@slider');
 Route::get('/', 'Admin\TestimonialCrudController@testimonial');
+Route::get('/', 'Admin\CategoryCrudController@category');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
