@@ -11,24 +11,14 @@
     <div class="row">
       <div class="col-md-12">
         <div id="testimonial-slider" class="owl-carousel">
-          <div class="testimonial">
-            <div class="description">
-              <h5>Steve Thomas, <span>CEO</span></h5>
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ipsum augue, lacinia vel arcu condimentum, dictum tristique sem. Nam enim neque, mattis ut fermentum vitae, venenatis id tortor. Sed consectetur tortor ut arcu pharetra faucibus.</p>
+          @foreach ($name as $retrive)
+            <div class="testimonial">
+              <div class="description">
+                <h5>{{ $retrive->name }}, <span>{{ $retrive->designation }}</span></h5>
+                <p>{{ strip_tags($retrive->description) }}</p>
+              </div>
             </div>
-          </div>
-          <div class="testimonial">
-            <div class="description">
-              <h5>Steve Thomas, <span>CEO</span></h5>
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ipsum augue, lacinia vel arcu condimentum, dictum tristique sem. Nam enim neque, mattis ut fermentum vitae, venenatis id tortor. Sed consectetur tortor ut arcu pharetra faucibus. </p>
-            </div>
-          </div>
-          <div class="testimonial">
-            <div class="description">
-              <h5>Steve Thomas, <span>CEO</span></h5>
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ipsum augue, lacinia vel arcu condimentum, dictum tristique sem. Nam enim neque, mattis ut fermentum vitae, venenatis id tortor. Sed consectetur tortor ut arcu pharetra faucibus. In tristique sollicitudin mi ac congue. </p>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>

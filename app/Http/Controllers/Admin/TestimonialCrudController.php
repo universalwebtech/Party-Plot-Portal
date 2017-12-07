@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\SliderRequest as StoreRequest;
+use App\Http\Requests\TestimonialRequest as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\SliderRequest as UpdateRequest;
+use App\Http\Requests\TestimonialRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-use App\Models\Slider;
-
-class SliderCrudController extends CrudController
+use App\Models\Testimonial;
+class TestimonialCrudController extends CrudController
 {
     public function setup()
     {
@@ -17,9 +16,9 @@ class SliderCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Slider');
-        $this->crud->setRoute(config('backpack.base.route_prefix').'/slider');
-        $this->crud->setEntityNameStrings('Slide', 'Slide');
+        $this->crud->setModel('App\Models\Testimonial');
+        $this->crud->setRoute(config('backpack.base.route_prefix').'/testimonial');
+        $this->crud->setEntityNameStrings('Testimonial', 'Testimonial');
 
         /*
         |--------------------------------------------------------------------------
@@ -28,14 +27,9 @@ class SliderCrudController extends CrudController
         */
 
         // ------ CRUD COLUMNS
-        $this->crud->addColumn('title'); // add a text column, at the end of the stack
-        $this->crud->addColumn('read_more'); // add a single column, at the end of the stack
-        // $this->crud->addColumns(); // add multiple columns, at the end of the stack
-        // $this->crud->removeColumn('column_name'); // remove a column from the stack
-        // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
-        // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
-        // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
-
+        $this->crud->addColumn('name'); // add a text column, at the end of the stack
+        $this->crud->addColumn('designation'); // add a single column, at the end of the stack
+        
         // -------------------------
         // ------ CRUD FIELDS ------
         // -------------------------
@@ -44,38 +38,34 @@ class SliderCrudController extends CrudController
         // SIMPLE tab
         // ----------
         $this->crud->addField([
-            'name'  => 'title',
-            'label' => 'Tite',
+            'name'  => 'name',
+            'label' => 'Name',
             'type'  => 'text',
         ]);
 
        $this->crud->addField([
-			'name' => 'desc',
+			'name' => 'description',
 			'label' => trans('backpack::pagemanager.content'),
 			'type' => 'wysiwyg',
 			'placeholder' => trans('backpack::pagemanager.content_placeholder'),
 		]);
 		
 		$this->crud->addField([
-            'name'  => 'read_more',
-            'label' => 'Read More',
+            'name'  => 'designation',
+            'label' => 'Designation',
             'type'  => 'text',
         ]);
+
+        $this->crud->addField([
+            'name'  => 'status',
+            'label' => 'Status',
+            'type'  => 'select_from_array',
+             'options' => ['1' => 'Active', '0' => 'Deactive'],
+        ]);
+
+       
 		
-		$this->crud->addField([ // image
-			'label' => "Image",
-			'name' => "image",
-			'type' => 'image',
-			'upload' => true,
-			'crop' => false, // set to true to allow cropping, false to disable
-			'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
-			'prefix' => 'slider/' // in case you only store the filename in the database, this text will be prepended to the database value
-		]);
-		
-		
-	   
-	   
-        // ------ FILTERS
+	    // ------ FILTERS
         //$this->addCustomCrudFilters();
     }
 
@@ -96,16 +86,18 @@ class SliderCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
-    public function slider()
+
+     public function testimonial()
     {
       
-    $sliderData = Slider::all();
+    $testimonialData = Testimonial::where('status', 1)->get();
    
     $view = array(
-                  'name'=>$sliderData
+                  'name'=>$testimonialData
                 );
     return view('pages.home', $view);
     }   
+   
 
    
 }

@@ -33,12 +33,14 @@ Route::group([
 	CRUD::resource('party_plot', 'PartyPlotCrudController');
 	CRUD::resource('slider', 'SliderCrudController');
 	CRUD::resource('advertisement', 'AdvertisementCrudController');
+    CRUD::resource('testimonial', 'TestimonialCrudController');
 
 });
 
 Route::get('api/article', 'Api\ArticleController@index');
 Route::get('api/article/{id}', 'Api\ArticleController@show');
 Route::get('/', 'Admin\SliderCrudController@slider');
+Route::get('/', 'Admin\TestimonialCrudController@testimonial');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
