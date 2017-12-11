@@ -1,6 +1,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+ {{-- Encrypted CSRF token for Laravel, in order for Ajax requests to work --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 <title>:: Book Party Plot ::</title>
 
 <!-- =================== FAVICON ==================== -->
@@ -29,8 +32,4 @@
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <!-- ================== HTML5 JS EOC ==================== -->
-<script>
-$('#myModal').modal('show');
-// www.jquery2dotnet.com
-</script>
 </head>

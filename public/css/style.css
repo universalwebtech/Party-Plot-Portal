@@ -199,7 +199,7 @@ div#OR {height: 30px;width: 30px;border: 1px solid #2c3038;border-radius: 50%;fo
 .login_form .common-form .form-control:-ms-input-placeholder { color: #fff; opacity:1; }
 .login_form .common-form .form-control::-webkit-input-placeholder { color: #fff; opacity:1; }
 .login_form .read_more{padding:10px 20px; text-transform:uppercase; font-weight:bold;}
-.login_form .modal-content{padding:10px; border-radius:0;color:#fff; }
+.login_form .modal-content{padding:10px; border-radius:0;color:#fff; z-index:999999; }
 .login_form .modal-content .modal-header{ position:relative; border:none; background:rgba(255,255,255,0.8); text-align:center; padding:15px 0 0 0; text-align:center;}
 .border{ display:block;background:url(../images/popup_bg.jpg); background-position:bottom;}
 .login_form .modal-header .close{position:absolute;right:-20px; top:-20px; display:block; background:#fff; width:30px; height:30px; opacity:1; border-radius:50%; border:2px solid #2c3038}
@@ -238,7 +238,7 @@ div#OR {height: 30px;width: 30px;border: 1px solid #2c3038;border-radius: 50%;fo
 .caption-content{}
 .hero-slider .slides li{padding:100px 0;}
 .hero-slider{position:relative;}
-.filter .panel{ background: rgba(44,48,56,0.8); border-radius:0; border:none; display:inline-block; padding:20px 10px; width:100%; position:absolute; bottom:0; z-index:9999;}
+.filter .panel{ background: rgba(44,48,56,0.8); border-radius:0; border:none; display:inline-block; padding:20px 10px; width:100%; position:absolute; bottom:0;}
 .filter .panel .form-group{margin-bottom:0;}
 .filter .panel .form-group label{display:block; text-transform:uppercase;}
 
@@ -500,3 +500,4 @@ color:#2c3038;
 #contact_form .common-form .form-control{height:40px;}
 #contact_form .common-form textarea{height:100px !important;}
 #contact_form .read_more{padding:10px 20px; font-weight:bold;}
+.alert-message-danger{color: #a94442;}

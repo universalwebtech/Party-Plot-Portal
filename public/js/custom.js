@@ -109,3 +109,90 @@ $('#myModal_next').on('hidden.bs.modal', function (e) {
 
   // do something...
 })
+
+/**/
+
+/* navbarfix JS
+============================================================== */
+
+$(window).on("scroll", function() {
+    if($(window).scrollTop() > 40) {
+        $(".stick_navbar").addClass("active");
+    } else {
+        //remove the background property so it comes transparent again (defined in your css)
+       $(".stick_navbar").removeClass("active");
+    }
+});
+
+
+/* navbarfix JS
+============================================================== */
+
+$(window).on("scroll", function() {
+    if($(window).scrollTop() > 90) {
+        $(".nav-bar-h").addClass("detail_sticky");
+		$(".right_desc").addClass("detail_sticky");
+    } else {
+        //remove the background property so it comes transparent again (defined in your css)
+       $(".nav-bar-h").removeClass("detail_sticky");
+	   $(".right_desc").removeClass("detail_sticky");
+    }
+});
+
+/*Smooth scroll to div id jQuery
+================================*/
+$("#overview1").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#overview").offset().top
+    }, 2000);
+});
+
+$("#reviews1").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#reviews").offset().top
+    }, 2000);
+});
+
+$("#amenities1").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#amenities").offset().top
+    }, 2000);
+});
+
+$("#availability1").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#availability").offset().top
+    }, 2000);
+});
+
+$("#map1").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#map").offset().top
+    }, 2000);
+});
+/*function scroll_to_div(div_id)
+{
+ $('html,body').animate(
+ {
+  scrollTop: $("#"+div_id).offset().top
+ },
+ 'slow');
+}
+*/
+
+/*function scrollNav() {
+  $('.detail_content a').click(function(){  
+    //Toggle Class
+    $(".active").removeClass("active");      
+    $(this).closest('li').addClass("active");
+    var theClass = $(this).attr("class");
+    $('.'+theClass).parent('li').addClass('active');
+    //Animate
+    $('html, body').stop().animate({
+        scrollTop: $( $(this).attr('href') ).offset().top - 160
+    }, 400);
+    return false;
+  });
+  $('.scrollTop a').scrollTop();
+}
+scrollNav();*/

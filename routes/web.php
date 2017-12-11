@@ -14,21 +14,22 @@
 Route::get('/', function () {
     return view('pages.home');
 });
-Route::get('	home', function () {
+Route::get('home', function () {
     return view('pages.home');
 });
-
-
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
 
 // --------------------
 // Backpack\Demo routes
 // --------------------
-Route::group([
-    'prefix'     => config('backpack.base.route_prefix', 'admin'),
-    'middleware' => ['admin'],
-    'namespace'  => 'Admin',
-], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['web','role'], 'namespace' => 'Admin'], function () {
+
+//Route::group(['prefix' => config('backpack.base.route_prefix', 'admin'),'middleware' => ['admin'],'namespace'  => 'Admin',], function () {
     // CRUD resources and other admin routes
+	Route::get('dashboard',  'HomeController@dashboard');
+
+		
     CRUD::resource('monster', 'MonsterCrudController');
 	CRUD::resource('party_plot', 'PartyPlotCrudController');
 	CRUD::resource('slider', 'SliderCrudController');
@@ -39,9 +40,15 @@ Route::group([
 
 Route::get('api/article', 'Api\ArticleController@index');
 Route::get('api/article/{id}', 'Api\ArticleController@show');
+
+
+
+Route::group(['prefix' => '/', 'middleware' => ['web','role']], function () {
+Route::get('/', function () { return view('pages.home'); });
 Route::get('/', 'Admin\SliderCrudController@slider');
 Route::get('/', 'Admin\TestimonialCrudController@testimonial');
-Auth::routes();
+
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/home', 'HomeController@index')->name('home');
