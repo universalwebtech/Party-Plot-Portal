@@ -95,7 +95,7 @@ class TestimonialCrudController extends CrudController
     $view = array(
                   'name'=>$testimonialData
                 );
-    return view('pages.home', $view);
+    return view('front.pages.home', $view);
     }   
    
 

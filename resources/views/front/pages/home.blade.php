@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('includes.head')
+@include('front.includes.head')
 <body>
 <div class="wrapper">
-  @include('includes.header')
-  @include('includes.slider')
-  @include('includes.about')
-  @include('includes.category')
-  @include('includes.maincontain')
-  @include('includes.testimonial')
-  @include('includes.brand')
-  @include('includes.contact')
-  @include('includes.footer')
+  @include('front.includes.header')
+  @include('front.includes.slider')
+  @include('front.includes.about')
+  @include('front.includes.category')
+  @include('front.includes.maincontain')
+  @include('front.includes.testimonial')
+  @include('front.includes.brand')
+  @include('front.includes.contact')
+  @include('front.includes.footer')
 </div>
 <script src="{{ asset('js/jquery.js') }}"></script> 
 <script src="{{ asset('js/owl.carousel.js') }}"></script> 

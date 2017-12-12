@@ -111,7 +111,7 @@ class CategoryCrudController extends CrudController
     $view = array(
                   'name'=>$categoryData
                 );
-    return view('pages.home', $view);
+    return view('front.pages.home', $view);
     }   
 
    

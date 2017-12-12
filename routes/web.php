@@ -12,10 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+    return view('front.pages.home');
 });
 Route::get('home', function () {
-    return view('pages.home');
+    return view('front.pages.home');
 });
 Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
@@ -45,13 +45,14 @@ Route::get('api/article/{id}', 'Api\ArticleController@show');
 
 
 Route::group(['prefix' => '/', 'middleware' => ['web','role']], function () {
-Route::get('/', function () { return view('pages.home'); });
+Route::get('/', function () { return view('front.pages.home'); });
 Route::get('/', 'Admin\SliderCrudController@slider');
 Route::get('/', 'Admin\TestimonialCrudController@testimonial');
+Route::get('/', 'Admin\CategoryCrudController@category');
+Route::get('/my-account', 'PartyPlotOwnerController@index');
 
 });
 
-Route::get('/', 'Admin\CategoryCrudController@category');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/home', 'HomeController@index')->name('home');
