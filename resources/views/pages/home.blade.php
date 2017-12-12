@@ -6,7 +6,7 @@
   @include('includes.header')
   @include('includes.slider')
   @include('includes.about')
-  @include('includes.service')
+  @include('includes.category')
   @include('includes.maincontain')
   @include('includes.testimonial')
   @include('includes.brand')

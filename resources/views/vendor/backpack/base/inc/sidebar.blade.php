@@ -31,7 +31,7 @@
                 <li><a href="{{ backpack_url('tag') }}"><i class="fa fa-tag"></i> <span>Tags</span></a></li>
               </ul>
           </li>
-
+          <li><a href="{{ backpack_url('category') }}"><i class="fa fa-list"></i> <span>Category</span></a></li>
           <li><a href="{{ backpack_url('page') }}"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
           <li><a href="{{ backpack_url('menu-item') }}"><i class="fa fa-list"></i> <span>Menu</span></a></li>
           <li><a href="{{ backpack_url('slider') }}"><i class="fa fa-list"></i> <span>Slider</span></a></li>

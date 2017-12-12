@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Category extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class Slider extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'slider';
+    protected $table = 'category';
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['title', 'desc', 'read_more', 'image'];
+    protected $fillable = ['title', 'description', 'image', 'status','display_on_home'];
     // protected $hidden = [];
     // protected $dates = [];
 	

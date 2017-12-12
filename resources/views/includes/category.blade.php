@@ -9,18 +9,20 @@
         </div>
       </div>
       <div class="row">
+         @foreach ($name as $retrive)
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="service"> <img src="images/service_1.jpg" class="img-responsive" alt="Best Party Plots"/>
-            <h4 class="service_title">Best Party Plots</h4>
+            <h4 class="service_title">{{ $retrive->title }}</h4>
             <div class="overlay">
               <div class="text">
-                <h4>Best Party Plots</h4>
-                <p>It is a long established fact that a reader will be distracted</p>
+                <h4>{{ $retrive->title }}</h4>
+                <p>{{ strip_tags($retrive->description) }}</p>
                 <a href="#" class="btn view">view</a> </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
+         @endforeach
+        <!-- <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="service"> <img src="images/service_3.jpg" class="img-responsive" alt="Best Party Plots"/>
             <h4 class="service_title">Wedding & Marriage Reception,
               Banquet Halls</h4>
@@ -57,6 +59,6 @@
             </div>
           </div>
         </div>
-      </div>
+              </div> -->
     </div>
   </section>

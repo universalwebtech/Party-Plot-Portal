@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','role'], 'namespace' =
 	CRUD::resource('slider', 'SliderCrudController');
 	CRUD::resource('advertisement', 'AdvertisementCrudController');
     CRUD::resource('testimonial', 'TestimonialCrudController');
+    CRUD::resource('category', 'CategoryCrudController');
 
 });
 
@@ -49,6 +50,8 @@ Route::get('/', 'Admin\SliderCrudController@slider');
 Route::get('/', 'Admin\TestimonialCrudController@testimonial');
 
 });
+
+Route::get('/', 'Admin\CategoryCrudController@category');
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/home', 'HomeController@index')->name('home');
