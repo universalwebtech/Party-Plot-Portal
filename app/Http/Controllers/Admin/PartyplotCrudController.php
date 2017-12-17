@@ -191,15 +191,4 @@ class PartyplotCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
-    public function partyplot()
-    {
-      	echo 'in partyplot 123';   die;  
-    $partyplotData = Partyplot::where('status', 1)->get();
-   	$view = array(
-                  'partyplot'=>$partyplotData
-                );
-    return view('pages.home', $view);
-    }   
-
-   
 }

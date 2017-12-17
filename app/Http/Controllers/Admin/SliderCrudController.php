@@ -77,11 +77,7 @@ class SliderCrudController extends CrudController
             'label' => 'Status',
             'type'  => 'select_from_array',
              'options' => ['1' => 'Active', '0' => 'Deactive'],
-        ]);
-		
-		
-	   
-	   
+        ]); 
         // ------ FILTERS
         //$this->addCustomCrudFilters();
     }
@@ -103,16 +99,4 @@ class SliderCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
-    public function slider()
-    {
-      
-    $sliderData = Slider::where('status', 1)->get();
-   
-    $view = array(
-                  'name'=>$sliderData
-                );
-    return view('pages.home', $view);
-    }   
-
-   
 }

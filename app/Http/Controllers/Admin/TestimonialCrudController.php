@@ -87,17 +87,4 @@ class TestimonialCrudController extends CrudController
         return $redirect_location;
     }
 
-     public function testimonial()
-    {
-      
-    $testimonialData = Testimonial::where('status', 1)->get();
-   
-    $view = array(
-                  'name'=>$testimonialData
-                );
-    return view('front.pages.home', $view);
-    }   
-   
-
-   
 }

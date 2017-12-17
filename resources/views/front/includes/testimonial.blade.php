@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-12">
         <div id="testimonial-slider" class="owl-carousel">
-          @foreach ($name as $retrive)
+          @foreach ($testimonial as $retrive)
             <div class="testimonial">
               <div class="description">
                 <h5>{{ $retrive->name }}, <span>{{ $retrive->designation }}</span></h5>

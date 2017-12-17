@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="row">
-        @foreach ($name as $retrive)
+        @foreach ($category as $retrive)
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="service"> <img src="images/service_1.jpg" class="img-responsive" alt="Best Party Plots"/>
             <h4 class="service_title">{{ $retrive->title }}</h4>

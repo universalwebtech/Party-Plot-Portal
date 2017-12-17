@@ -13,9 +13,8 @@
           </div>
           <div class="row">
             <ul>
-                {{$name}}
-                <?php die();?>
-              @foreach ($name as $retrive)
+            
+              @foreach ($partyplot as $retrive)
               <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
                 <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
                   <div class="caption">

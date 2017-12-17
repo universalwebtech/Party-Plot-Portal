@@ -3,17 +3,6 @@
 @include('front.includes.head')
 <body>
 <div class="wrapper">
-<<<<<<< HEAD:resources/views/pages/home.blade.php
-  @include('includes.header')
-  @include('includes.slider')
-  @include('includes.about')
-  @include('includes.category')
-  @include('includes.partyplot')
-  @include('includes.testimonial')
-  @include('includes.brand')
-  @include('includes.contact')
-  @include('includes.footer')
-=======
   @include('front.includes.header')
   @include('front.includes.slider')
   @include('front.includes.about')
@@ -23,8 +12,7 @@
   @include('front.includes.brand')
   @include('front.includes.contact')
   @include('front.includes.footer')
->>>>>>> 03d243c2217c0c57552d851f7962bc673cb62b44:resources/views/front/pages/home.blade.php
-</div>
+ </div>
 <script src="{{ asset('js/jquery.js') }}"></script> 
 <script src="{{ asset('js/owl.carousel.js') }}"></script> 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 

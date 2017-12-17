@@ -105,7 +105,6 @@ class CategoryCrudController extends CrudController
     }
     public function category()
     {
-      echo "in categoy function"; die;
     $categoryData = Category::where('status', 1)->where('display_on_home',1)->get();
    
     $view = array(

@@ -1,7 +1,7 @@
 <section id="home" class="home-section">
     <div class="hero-slider">
       <ul class="slides">
-        @foreach ($name as $retrive)
+        @foreach ($slider as $retrive)
         <li class="bg-dark-30 bg-dark bgdarkmg1 flex-active-slide" style='background-image:url("../public/images/{{ $retrive->image }}")'>
           <div class="hs-caption">
             <div class="caption-content">
