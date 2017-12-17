@@ -13,22 +13,25 @@
           </div>
           <div class="row">
             <ul>
+                {{$name}}
+                <?php die();?>
+              @foreach ($name as $retrive)
               <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
                 <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
                   <div class="caption">
-                    <h5>Lorem Ipsum dolor sit</h5>
+                    <h5>{{ $retrive->name }}</h5>
                     <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
-                    <p><i class="fa fa-map-marker"></i>USA</p>
+                    <p><i class="fa fa-map-marker"></i>INR</p>
                     <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
                   </div>
                   </a>
                   <div class="price"> <a href="#" class="btn book pull-right" data-toggle="modal" data-target="#myModal">Get Quotes</a>
-                    <p><span>$</span>4582</p>
+                    <p><span>$</span>{{ $retrive->price }}</p>
                   </div>
-                  <div class="modal fade" id="myModal" role="dialog">
+                  <!-- <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog"> 
                       
-                      <!-- Modal content-->
+                      Modal content
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -71,51 +74,52 @@
                     </div>
                   </div>
                   <div class="modal fade" id="myModal_next" role="dialog">
-        <div class="modal-dialog"> 
-          
-          <!-- Modal content-->
-          <div class="modal-content">
-          <div class="">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h5 class="modal-title">Contact Form</h5>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="row common-form" id="contact_form">
-                  <div class="col-lg-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <input type="text" placeholder="Name" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <input type="email" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <input type="email" placeholder="Address" class="form-control">
+                    <div class="modal-dialog"> 
+                      
+                      Modal content
+                      <div class="modal-content">
+                      <div class="">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h5 class="modal-title">Contact Form</h5>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="row common-form" id="contact_form">
+                              <div class="col-lg-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                  <input type="text" placeholder="Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <input type="email" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <input type="email" placeholder="Address" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                  <input type="email" placeholder="Contact" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                  <textarea placeholder="Query / Questions" class="form-control"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                           <a href="#" class="pull-left" data-target="#myModal"><i class="fa fa-long-arrow-left"></i>Back</a>
+                                      <button type="button" class="btn read_more " data-toggle="modal_next" data-dismiss="modal" >Next</button>
+                        </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <input type="email" placeholder="Contact" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <textarea placeholder="Query / Questions" class="form-control"></textarea>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-               <a href="#" class="pull-left" data-target="#myModal"><i class="fa fa-long-arrow-left"></i>Back</a>
-                          <button type="button" class="btn read_more " data-toggle="modal_next" data-dismiss="modal" >Next</button>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-                </div>
+                                  </div> -->
               </li>
-              <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+               @endforeach
+              <!-- <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
                 <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
                   <div class="caption">
                     <h5>Lorem Ipsum dolor sit</h5>
@@ -142,7 +146,7 @@
                     <p><span>$</span>4582</p>
                   </div>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>

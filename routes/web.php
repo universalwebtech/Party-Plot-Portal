@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','role'], 'namespace' =
 
 		
     CRUD::resource('monster', 'MonsterCrudController');
-	CRUD::resource('party_plot', 'PartyPlotCrudController');
+	CRUD::resource('partyplot', 'PartyplotCrudController');
 	CRUD::resource('slider', 'SliderCrudController');
 	CRUD::resource('advertisement', 'AdvertisementCrudController');
     CRUD::resource('testimonial', 'TestimonialCrudController');
@@ -49,9 +49,10 @@ Route::get('/', function () { return view('pages.home'); });
 Route::get('/', 'Admin\SliderCrudController@slider');
 Route::get('/', 'Admin\TestimonialCrudController@testimonial');
 
+
 });
 
 Route::get('/', 'Admin\CategoryCrudController@category');
-
+Route::get('/', 'Admin\PartyplotCrudController@partyplot');
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/home', 'HomeController@index')->name('home');
