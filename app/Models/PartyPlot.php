@@ -6,7 +6,7 @@ use Backpack\CRUD\CrudTrait;
 //use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PartyPlot extends Model
+class Partyplot extends Model
 {
     use CrudTrait;
     use SoftDeletes;
@@ -18,15 +18,15 @@ class PartyPlot extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'contacts';
+    protected $table = 'party_plot';
     protected $primaryKey = 'id';
      public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['company_id', 'first_name','last_name','position','city_id','email', 'phone_no', 'mobile_no', 'status', 'notes'];
+    protected $fillable = ['name', 'address','ideal_for','min-capacity','mx-capacity','landmark', 'contact_name', 'contact_email', 'contact_number', 'price','map','approach','entrance_and_outside','ambiance','food_and_services_provided','anything_special_about_the_place','status'];
     protected $dates = ['deleted_at'];
     // protected $hidden = [];
     // protected $dates = [];
-
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -39,12 +39,12 @@ class PartyPlot extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+/*
     public function company()
     {
         return $this->belongsTo('App\Models\UserCompanies', 'company_id');
     }
-
+*/
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -80,7 +80,7 @@ class PartyPlot extends Model
     |--------------------------------------------------------------------------
     */
     
-   public function getFullName(){
+   /*public function getFullName(){
        return $this->first_name.' '.$this->last_name;
    }
    
@@ -94,5 +94,5 @@ class PartyPlot extends Model
        }
        
        return implode(',', $tempArr);
-   }
+   }*/
 }

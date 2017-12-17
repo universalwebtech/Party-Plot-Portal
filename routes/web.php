@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','role'], 'namespace' =
 
 		
     CRUD::resource('monster', 'MonsterCrudController');
-	CRUD::resource('party_plot', 'PartyPlotCrudController');
+	CRUD::resource('partyplot', 'PartyplotCrudController');
 	CRUD::resource('slider', 'SliderCrudController');
 	CRUD::resource('advertisement', 'AdvertisementCrudController');
     CRUD::resource('testimonial', 'TestimonialCrudController');
@@ -57,8 +57,15 @@ Route::post('my-account/owner_update', 'PartyPlotOwnerController@owner_update');
 Route::get('party_plot', 'PartyPlotController@index');
 Route::post('party_plot/update', 'PartyPlotController@party_plot_update');
 
+
 });
 
+<<<<<<< HEAD
+Route::get('/', 'Admin\CategoryCrudController@category');
+Route::get('/', 'Admin\PartyplotCrudController@partyplot');
+Route::get('/home', 'HomeController@index')->name('home');
+=======
 
 //Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> 03d243c2217c0c57552d851f7962bc673cb62b44
 //Route::get('/home', 'HomeController@index')->name('home');

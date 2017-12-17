@@ -23,6 +23,7 @@
 		<?php if (Auth::user()->hasRole('Super Admin')) { ?>
           <li><a href="{{ backpack_url('monster') }}"><i class="fa fa-optin-monster"></i> <span>Monsters</span></a></li>
 		<?php } ?>	
+           <li><a href="{{ backpack_url('partyplot') }}"><i class="fa fa-list"></i> <span>Party Plot</span></a></li>
           <li class="treeview">
               <a href="#"><i class="fa fa-newspaper-o"></i> <span>News</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
