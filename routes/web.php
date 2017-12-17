@@ -54,12 +54,7 @@ Route::get('/my-account', 'PartyPlotOwnerController@index');
 
 });
 
-<<<<<<< HEAD
+
 Route::get('/', 'Admin\CategoryCrudController@category');
 Route::get('/', 'Admin\PartyplotCrudController@partyplot');
 Route::get('/home', 'HomeController@index')->name('home');
-=======
-
-//Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> 03d243c2217c0c57552d851f7962bc673cb62b44
-//Route::get('/home', 'HomeController@index')->name('home');

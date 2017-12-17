@@ -193,7 +193,7 @@ class PartyplotCrudController extends CrudController
     }
     public function partyplot()
     {
-      	echo 'in partyplot'; die;
+      	echo 'in partyplot 123';   die;  
     $partyplotData = Partyplot::where('status', 1)->get();
    	$view = array(
                   'partyplot'=>$partyplotData
