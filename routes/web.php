@@ -49,7 +49,13 @@ Route::get('/', function () { return view('front.pages.home'); });
 Route::get('/', 'Admin\SliderCrudController@slider');
 Route::get('/', 'Admin\TestimonialCrudController@testimonial');
 Route::get('/', 'Admin\CategoryCrudController@category');
-Route::get('/my-account', 'PartyPlotOwnerController@index');
+
+
+Route::get('my-account', 'PartyPlotOwnerController@index');
+Route::get('my-account/owner_update', 'PartyPlotOwnerController@owner_update');
+Route::post('my-account/owner_update', 'PartyPlotOwnerController@owner_update');
+Route::get('party_plot', 'PartyPlotController@index');
+Route::post('party_plot/update', 'PartyPlotController@party_plot_update');
 
 
 });

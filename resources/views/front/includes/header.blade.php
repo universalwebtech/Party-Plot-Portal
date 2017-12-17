@@ -15,7 +15,7 @@
           <div class="col-lg-8 col-md-7 col-sm-6 col-xs-12 login_form">
             @if(Auth::check() AND Auth::user()->hasRole('Party Plot Owner'))
 			<ul class="user-links list-inline">
-              <li><a data-toggle="modal" data-target="#myModallog" href="" title="Login"><i class="fa fa-user"></i> <span>My Account</span></a></li>
+              <li><a href="{{ url('/my-account') }}" title="My Account"><i class="fa fa-user"></i> <span>My Account</span></a></li>
 			  <li><a href="{{ url('/logout') }}" title="Log out"><i class="fa fa-user"></i> <span>Log out</span> </a></li>
             </ul>
 			@else
@@ -188,6 +188,7 @@
                 <h4>+91-9429564481</h4>
               </div>
             </div>
+			
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav pull-right">
                 <li class="active"><a href="#">Home</a></li>

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
  use Session;
 //use Backpack\Settings\app\Models\Setting;
 
-class PartyPlotOwnerController extends CrudController {
+class PartyPlotController extends CrudController {
 
     public function __construct() {
         parent::__construct();
@@ -32,8 +32,8 @@ class PartyPlotOwnerController extends CrudController {
     public function setup() {
         parent::setup();
         $this->crud->setModel("App\User");
-        $this->crud->setRoute("my-account");
-        $this->crud->setEntityNameStrings('My Account', 'my-account');
+        $this->crud->setRoute("party_plot");
+        $this->crud->setEntityNameStrings('Party Plot', 'party_plot');
    
     }
 

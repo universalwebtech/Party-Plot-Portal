@@ -4,8 +4,6 @@
 <body>
 <div class="wrapper">
   @include('front.includes.header') 
-  
-  
    <section class="listing_content my_account">
     <div class="container">
     <div class="row">
@@ -29,37 +27,27 @@
         <!-- /.col-lg-3 -->
         
         <div class="col-lg-9 col-md-9 col-sm-9 ">
+		<!-- will be used to show any messages -->
+			@include('front.includes.alert') 
           <div class=" tab-content">
             <div class="common-form tab-pane active" id="tab_a">
-               <form role="form" id="regUpdateForm" class="form-horizontal common-form">
+               <form role="form" id="regUpdateForm" action="{{url('/my-account/owner_update')}}" method="post" class="form-horizontal common-form">
 			  <div class="form-group">
 				<label for="email" class="col-sm-2 control-label"> Name</label>
 				<div class="col-sm-10">
-				  <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" />
+				  <input type="text" name="name" id="name" value="{{$owner_name}}" class="form-control" placeholder="Enter Name" />
 				</div>
 			  </div>
 			  <div class="form-group">
 				<label for="email" class="col-sm-2 control-label"> Email</label>
 				<div class="col-sm-10">
-				  <input type="email" name="email" class="form-control" id="reg_email" placeholder="Enter Email" />
+				  <input type="email" name="email" class="form-control" value="{{$owner_email}}" disabled id="reg_email" placeholder="Enter Email" />
 				</div>
 			  </div>
 			  <div class="form-group">
 				<label for="mobile" class="col-sm-2 control-label"> Mobile</label>
 				<div class="col-sm-10">
-				  <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Enter Mobile" />
-				</div>
-			  </div>
-			  <div class="form-group">
-				<label for="password" class="col-sm-2 control-label"> Password</label>
-				<div class="col-sm-10">
-				  <input type="password" name="password" class="form-control" id="reg_password" placeholder="Enter Password" />
-				</div>
-			  </div>
-			  <div class="form-group">
-				<label for="confirm_password" class="col-sm-2 control-label"> Confirm Password</label>
-				<div class="col-sm-10">
-				  <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Enter Confirm Password" />
+				  <input type="text" name="mobile" class="form-control" value="{{$owner_mobile}}" id="mobile" placeholder="Enter Mobile" />
 				</div>
 			  </div>
 			  <div class="row">
@@ -68,6 +56,7 @@
 				  <button type="submit" class="btn read_more"> Update</button>
 				</div>
 			  </div>
+			  <input type="hidden" name="_token" value="{{ Session::token() }}">
 			</form>
             </div>
              <div class="tab-pane" id="tab_b">
