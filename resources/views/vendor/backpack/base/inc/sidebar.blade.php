@@ -20,25 +20,24 @@
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
           <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-		<?php if (Auth::user()->hasRole('Super Admin')) { ?>
-          <li><a href="{{ backpack_url('monster') }}"><i class="fa fa-optin-monster"></i> <span>Monsters</span></a></li>
-		<?php } ?>	
-           <li><a href="{{ backpack_url('partyplot') }}"><i class="fa fa-list"></i> <span>Party Plot</span></a></li>
-          <li class="treeview">
-              <a href="#"><i class="fa fa-newspaper-o"></i> <span>News</span> <i class="fa fa-angle-left pull-right"></i></a>
-              <ul class="treeview-menu">
-                <li><a href="{{ backpack_url('article') }}"><i class="fa fa-newspaper-o"></i> <span>Articles</span></a></li>
-                <li><a href="{{ backpack_url('category') }}"><i class="fa fa-list"></i> <span>Categories</span></a></li>
-                <li><a href="{{ backpack_url('tag') }}"><i class="fa fa-tag"></i> <span>Tags</span></a></li>
-              </ul>
-          </li>
-          <li><a href="{{ backpack_url('category') }}"><i class="fa fa-list"></i> <span>Category</span></a></li>
-          <li><a href="{{ backpack_url('page') }}"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
-          <li><a href="{{ backpack_url('menu-item') }}"><i class="fa fa-list"></i> <span>Menu</span></a></li>
-          <li><a href="{{ backpack_url('slider') }}"><i class="fa fa-list"></i> <span>Slider</span></a></li>
-          <li><a href="{{ backpack_url('advertisement') }}"><i class="fa fa-list"></i> <span>Advertisemen</span></a></li>
-          <li><a href="{{ backpack_url('testimonial') }}"><i class="fa fa-list"></i> <span>Testimonial</span></a></li>
-
+		<?php if (Auth::user()->hasRole('Super Admin') || Auth::user()->hasRole('Admin')) { ?>
+			<li><a href="{{ backpack_url('menu-item') }}"><i class="fa fa-bars"></i> <span>Menu</span></a></li>
+			<li><a href="{{ backpack_url('page') }}"><i class="fa fa-file-o"></i> <span>Pages</span></a></li>
+			<li><a href="{{ backpack_url('slider') }}"><i class="fa fa-sliders"></i> <span>Slider</span></a></li>
+			<li><a href="{{ backpack_url('testimonial') }}"><i class="fa fa-weixin"></i> <span>Testimonial</span></a></li>
+		<?php } ?>		
+			<li><a href="{{ backpack_url('advertisement') }}"><i class="fa fa-buysellads"></i> <span>Advertisemen</span></a></li>
+			<li class="treeview">
+				<a href="#"><i class="fa fa-cogs"></i> <span>Manage Party Plot</span> <i class="fa fa-angle-left pull-right"></i></a>
+				<ul class="treeview-menu">
+					<?php if (Auth::user()->hasRole('Super Admin') || Auth::user()->hasRole('Admin')) { ?>
+					<li><a href="{{ backpack_url('category') }}"><i class="fa fa-list"></i> <span>Category</span></a></li>
+					<?php } ?>
+					<li><a href="{{ backpack_url('partyplot') }}"><i class="fa fa-glass"></i> <span>Party Plot</span></a></li>
+				</ul>
+			</li>
+          
+		<?php if (Auth::user()->hasRole('Super Admin') || Auth::user()->hasRole('Admin')) { ?>
           <!-- Users, Roles Permissions -->
           <li class="treeview">
             <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -48,6 +47,7 @@
               <li><a href="{{ backpack_url('permission') }}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
             </ul>
           </li>
+		<?php } ?>  
 		<?php if (Auth::user()->hasRole('Super Admin')) { ?>
           <li class="treeview">
               <a href="#"><i class="fa fa-cogs"></i> <span>Advanced</span> <i class="fa fa-angle-left pull-right"></i></a>

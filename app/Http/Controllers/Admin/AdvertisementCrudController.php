@@ -9,6 +9,10 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class AdvertisementCrudController extends CrudController
 {
+	public function __construct(){
+		$this->middleware('permission:Advertisement');
+		parent::__construct();        
+    }
     public function setup()
     {
         /*

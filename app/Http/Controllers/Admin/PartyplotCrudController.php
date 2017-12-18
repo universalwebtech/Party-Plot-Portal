@@ -10,6 +10,10 @@ use App\Models\Partyplot;
 
 class PartyplotCrudController extends CrudController
 {
+	public function __construct(){
+		$this->middleware('permission:Party Plot');
+		parent::__construct();        
+    }
     public function setup()
     {
         /*

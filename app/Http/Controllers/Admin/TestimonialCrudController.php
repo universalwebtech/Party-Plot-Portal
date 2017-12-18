@@ -7,8 +7,14 @@ use App\Http\Requests\TestimonialRequest as StoreRequest;
 use App\Http\Requests\TestimonialRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Models\Testimonial;
+use Illuminate\Support\Facades\Auth;
 class TestimonialCrudController extends CrudController
 {
+	public function __construct(){
+		$this->middleware('permission:Testimonial');
+		parent::__construct();        
+    }
+	
     public function setup()
     {
         /*

@@ -29,9 +29,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','role'], 'namespace' =
 //Route::group(['prefix' => config('backpack.base.route_prefix', 'admin'),'middleware' => ['admin'],'namespace'  => 'Admin',], function () {
     // CRUD resources and other admin routes
 	Route::get('dashboard',  'HomeController@dashboard');
-
-		
-    CRUD::resource('monster', 'MonsterCrudController');
 	CRUD::resource('partyplot', 'PartyplotCrudController');
 	CRUD::resource('slider', 'SliderCrudController');
 	CRUD::resource('advertisement', 'AdvertisementCrudController');
@@ -40,21 +37,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','role'], 'namespace' =
 
 });
 
-Route::get('api/article', 'Api\ArticleController@index');
-Route::get('api/article/{id}', 'Api\ArticleController@show');
-
-
 
 Route::group(['prefix' => '/', 'middleware' => ['web','role']], function () {
 Route::get('/', function () { return view('front.pages.home'); });
 Route::get('/', 'Admin\TestimonialCrudController@testimonial');
-
-
 Route::get('my-account', 'PartyPlotOwnerController@index');
 Route::get('my-account/owner_update', 'PartyPlotOwnerController@owner_update');
 Route::post('my-account/owner_update', 'PartyPlotOwnerController@owner_update');
-Route::get('party_plot', 'PartyPlotController@index');
-Route::post('party_plot/update', 'PartyPlotController@party_plot_update');
+Route::get('party-plot', 'PartyPlotController@index');
+Route::get('party-plot/add', 'PartyPlotController@party_plot_add');
 
 
 });

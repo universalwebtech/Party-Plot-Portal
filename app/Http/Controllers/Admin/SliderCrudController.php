@@ -10,6 +10,10 @@ use App\Models\Slider;
 
 class SliderCrudController extends CrudController
 {
+	public function __construct(){
+		$this->middleware('permission:Slider');
+		parent::__construct();        
+    }
     public function setup()
     {
         /*
@@ -48,7 +52,12 @@ class SliderCrudController extends CrudController
             'label' => 'Tite',
             'type'  => 'text',
         ]);
-
+		$this->crud->addField([
+            'name'  => 'sub_title',
+            'label' => 'Sub Tite',
+            'type' => 'wysiwyg',
+        ]);
+		
        $this->crud->addField([
 			'name' => 'desc',
 			'label' => trans('backpack::pagemanager.content'),

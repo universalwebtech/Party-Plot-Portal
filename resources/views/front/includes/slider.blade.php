@@ -2,14 +2,13 @@
     <div class="hero-slider">
       <ul class="slides">
         @foreach ($slider as $retrive)
-        <li class="bg-dark-30 bg-dark bgdarkmg1 flex-active-slide" style='background-image:url("../public/images/{{ $retrive->image }}")'>
+        <li class="bg-dark-30 bg-dark bgdarkmg1 flex-active-slide" style='background-image:url("../public/slider/{{ $retrive->image }}")'>
           <div class="hs-caption">
             <div class="caption-content">
               <div class="hs-title-size-1 mb-20">{{ $retrive->title }}</div>
-              <div class="hs-title-size-4  mb-30">LOREM IPSUM <span>DOLOR</span><br>
-                sit amet</div>
-              <div class="hs-title-size-1 font-alt mb-40">{{ $retrive->desc }}</div>
-              <a href="#" class="section-scroll btn read_more">{{ $retrive->read_more }}</a></div>
+              <div class="hs-title-size-4  mb-30">{{ strip_tags($retrive->sub_title) }}</div>
+              <div class="hs-title-size-1 font-alt mb-40">{{ strip_tags($retrive->desc) }}</div>
+              <a href="{{ $retrive->read_more }}" class="section-scroll btn read_more">Read More</a></div>
           </div>
         </li>
          @endforeach

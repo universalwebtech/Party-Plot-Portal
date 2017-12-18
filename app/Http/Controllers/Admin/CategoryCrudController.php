@@ -10,6 +10,10 @@ use App\Models\Category;
 
 class CategoryCrudController extends CrudController
 {
+	public function __construct(){
+		$this->middleware('permission:Party Plot Category');
+		parent::__construct();        
+    }
     public function setup()
     {
         /*

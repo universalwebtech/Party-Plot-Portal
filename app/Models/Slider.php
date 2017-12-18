@@ -19,7 +19,7 @@ class Slider extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['title', 'desc', 'read_more', 'image'];
+    protected $fillable = ['title', 'sub_title', 'desc', 'read_more', 'image'];
     // protected $hidden = [];
     // protected $dates = [];
 	
@@ -27,8 +27,8 @@ class Slider extends Model
 	public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $disk = "local";
-        $destination_path = "uploads";
+        $disk = "slider";
+        $destination_path = "/";
 
         // if the image was erased
         if ($value==null) {
