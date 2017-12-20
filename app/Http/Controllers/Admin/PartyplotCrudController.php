@@ -78,7 +78,7 @@ class PartyplotCrudController extends CrudController
             'upload' => true,
             'crop' => false, // set to true to allow cropping, false to disable
             'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
-            'prefix' => 'partyplot/' // in case you only store the filename in the database, this text will be prepended to the database value
+            'prefix' => 'party_plot/' // in case you only store the filename in the database, this text will be prepended to the database value
         ]);
         $this->crud->addField([
             'name'  => 'min-capacity',

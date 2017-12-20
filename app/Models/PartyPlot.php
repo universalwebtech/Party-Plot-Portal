@@ -98,8 +98,7 @@ class Partyplot extends Model
    public function setImageAttribute($value)
     {
         $attribute_name = "image";
-        $disk = "local";
-        $destination_path = "/";
+        $disk = "party_plot";
 
         // if the image was erased
         if ($value==null) {
@@ -118,9 +117,9 @@ class Partyplot extends Model
             // 1. Generate a filename.
             $filename = md5($value.time()).'.jpg';
             // 2. Store the image on disk.
-            \Storage::disk($disk)->put($destination_path.'/'.$filename, $image->stream());
+            \Storage::disk($disk)->put($filename, $image->stream());
             // 3. Save the path to the database
-            $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
+            $this->attributes[$attribute_name] = $filename;
         }
     }
 }

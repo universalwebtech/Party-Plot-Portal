@@ -65,6 +65,12 @@ return [
 			'visibility' => 'public',
         ],
 		
+		'party_plot' => [ // used for Backpack/CRUD (in elFinder)
+            'driver' => 'local',
+            'root'   => public_path('party_plot'),
+			'visibility' => 'public',
+        ],
+		
 		'advertisement' => [ // used for Backpack/CRUD (in elFinder)
             'driver' => 'local',
             'root'   => public_path('advertisement'),
