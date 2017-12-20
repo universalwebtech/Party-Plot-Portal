@@ -59,16 +59,34 @@ class PartyplotCrudController extends CrudController
         ]);
 
         $this->crud->addField([
+            'name'  => 'description',
+            'label' => 'Description',
+            'type'  => 'textarea',
+        ]);
+
+        $this->crud->addField([
             'name'  => 'ideal_for',
             'label' => 'Ideal For',
             'type'  => 'select_from_array',
             'options' => ['Birthday Party' => 'Birthday Party', 'Engagement' => 'Engagement', 'Fresher Party' => 'Fresher Party', 'Kitty Party' => 'Kitty Party', 'Anniversary' => 'Anniversary', 'Baby Shower' => 'Baby Shower', 'Farewell Party' => 'Farewell Party', 'Wedding' => 'Wedding'],
+        ]);
+
+        $this->crud->addField([ // image
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image',
+            'upload' => true,
+            'crop' => false, // set to true to allow cropping, false to disable
+            'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
+            'prefix' => 'partyplot/' // in case you only store the filename in the database, this text will be prepended to the database value
         ]);
         $this->crud->addField([
             'name'  => 'min-capacity',
             'label' => 'Min Capacity',
             'type'  => 'text',
         ]);
+
+      
 
         $this->crud->addField([
             'name'  => 'mx-capacity',

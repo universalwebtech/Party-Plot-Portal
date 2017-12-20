@@ -7,7 +7,7 @@
   @include('front.includes.slider')
   @include('front.includes.about')
   @include('front.includes.category')
-  @include('front.includes.maincontain')
+  @include('front.includes.partyplot')
   @include('front.includes.testimonial')
   @include('front.includes.brand')
   @include('front.includes.contact')

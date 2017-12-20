@@ -20,8 +20,8 @@
                   <div class="caption">
                     <h5>{{ $retrive->name }}</h5>
                     <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
-                    <p><i class="fa fa-map-marker"></i>INR</p>
-                    <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
+                    <p><a href="https://www.google.com/maps/search/?api=1&query={{ $retrive->address}}"><i class="fa fa-map-marker"></i>INR</p>
+                    <p class="short_desc">{{ $retrive->approach}}</p>
                   </div>
                   </a>
                   <div class="price"> <a href="#" class="btn book pull-right" data-toggle="modal" data-target="#myModal">Get Quotes</a>
