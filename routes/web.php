@@ -45,7 +45,13 @@ Route::get('my-account', 'PartyPlotOwnerController@index');
 Route::get('my-account/owner_update', 'PartyPlotOwnerController@owner_update');
 Route::post('my-account/owner_update', 'PartyPlotOwnerController@owner_update');
 Route::get('party-plot', 'PartyPlotController@index');
-Route::get('party-plot/add', 'PartyPlotController@party_plot_add');
+Route::get('party-plot/add', 'PartyPlotController@add');
+Route::post('party-plot/search', 'PartyPlotController@search');
+Route::get('party-plot/search', 'PartyPlotController@search');
+Route::post('party-plot/list/{category}', 'PartyPlotController@list');
+Route::get('party-plot/list/{category}', 'PartyPlotController@list');
+Route::post('party-plot/detail/{id}', 'PartyPlotController@detail');
+Route::get('party-plot/detail/{id}', 'PartyPlotController@detail');
 
 
 });

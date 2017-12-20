@@ -181,9 +181,9 @@
           <div class="">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-              <a class="navbar-brand" href="#"><img src="images/logo.png" alt="logo"/></a> </div>
+              <a class="navbar-brand" href="{{url('/')}}"><img src="{{ asset('images/logo.png') }}" alt="logo"/></a> </div>
             <div class="call pull-right">
-              <div class="call_img"> <img src="images/call.png" alt="call"/> </div>
+              <div class="call_img"> <img src="{{ asset('images/call.png') }}" alt="call"/> </div>
               <div class="call_desc"> <span>Call Us</span>
                 <h4>+91-9429564481</h4>
               </div>
@@ -191,7 +191,7 @@
 			
             <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="{{url('/')}}">Home</a></li>
                 <li><a href="#">about us</a></li>
                 <li><a href="#">view party  plot</a></li>
                 <li><a href="#contact_form" role="button"  data-toggle="modal">contact us</a>

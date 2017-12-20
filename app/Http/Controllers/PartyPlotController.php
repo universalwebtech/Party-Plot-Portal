@@ -38,14 +38,20 @@ class PartyPlotController extends CrudController {
 		
         return view('front.owner.partyplot', $this->data);
     }   
-	 public function party_plot_add() {
+	 public function add() {
 		
         return view('front.owner.partyplot-add');
     } 
 
 	public function search() {	
-        return view('front.owner.partyplot-search');
+        return view('front.party_plot.party-plot-search');
     } 	
 
+	public function list() {	
+        return view('front.party_plot.party-plot-list');
+    } 	
 	
+	public function detail() {	
+        return view('front.party_plot.party-plot-detail');
+    } 	
 }

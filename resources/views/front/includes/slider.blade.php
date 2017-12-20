@@ -29,7 +29,7 @@
             <div class=" col-lg-offset-1 col-lg-10  col-xs-12 col-sm-offset-1 col-sm-10 formsection">
               <div class="panel">
                 <h6>Book Party Plot</h6>
-                <form class="common-form">
+                <form class="common-form" action="{{url('party-plot/search')}}" method="post">
                   <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12 filter_padding_0">
                     <div class="inner-addon left-addon">
                       <label for="email">Search Party Plot....</label>
@@ -67,6 +67,7 @@
                   <div class="col-lg-2 col-xs-12 col-md-2">
                     <button type="submit" class="btn submit">Submit</button>
                   </div>
+				  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
               </div>
             </div>

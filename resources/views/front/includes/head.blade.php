@@ -1,8 +1,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
- {{-- Encrypted CSRF token for Laravel, in order for Ajax requests to work --}}
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+{{-- Encrypted CSRF token for Laravel, in order for Ajax requests to work --}}
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <title>:: Book Party Plot ::</title>
 
@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- ================ GOOGLE FONT EOC =================== -->
-
+<link href="{{ asset('css/jquary_ui.css') }}" rel="stylesheet" type="text/css">
 <!-- ================== HTML5 JS BOC ==================== -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
