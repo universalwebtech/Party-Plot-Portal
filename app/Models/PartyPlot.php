@@ -22,7 +22,7 @@ class Partyplot extends Model
     protected $primaryKey = 'id';
      public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['name', 'address','description','image','ideal_for','min-capacity','mx-capacity','landmark', 'contact_name', 'contact_email', 'contact_number', 'price','map','approach','entrance_and_outside','ambiance','food_and_services_provided','anything_special_about_the_place','status'];
+    protected $fillable = ['name', 'category_id', 'address','description','image','ideal_for','min-capacity','mx-capacity','landmark', 'contact_name', 'contact_email', 'contact_number', 'price','map','approach','entrance_and_outside','ambiance','food_and_services_provided','anything_special_about_the_place','status'];
     protected $dates = ['deleted_at'];
     // protected $hidden = [];
     // protected $dates = [];
@@ -121,5 +121,10 @@ class Partyplot extends Model
             // 3. Save the path to the database
             $this->attributes[$attribute_name] = $filename;
         }
+    }
+	
+	public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'category_id');
     }
 }

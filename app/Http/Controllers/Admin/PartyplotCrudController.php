@@ -47,6 +47,15 @@ class PartyplotCrudController extends CrudController
         // ----------
         // SIMPLE tab
         // ----------
+		$this->crud->addField([
+            'label' => 'Select Company',
+            'type' => 'select',
+            'name' => 'category_id',
+            'entity' => 'category',
+            'attribute' => 'title',
+            'model' => "App\Models\Category",
+        ]);
+		
         $this->crud->addField([
             'name'  => 'name',
             'label' => 'Name',
