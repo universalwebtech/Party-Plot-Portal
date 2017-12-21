@@ -21,7 +21,7 @@
                     <h5>{{ $retrive->name }}</h5>
                     <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
                     <p><a href="https://www.google.com/maps/search/?api=1&query={{ $retrive->address}}"><i class="fa fa-map-marker"></i>INR</p>
-                    <p class="short_desc">{{ $retrive->approach}}</p>
+                    <p class="short_desc">{{ $retrive->description}}</p>
                   </div>
                   </a>
                   <div class="price"> <a href="#" class="btn book pull-right" data-toggle="modal" data-target="#myModal">Get Quotes</a>
