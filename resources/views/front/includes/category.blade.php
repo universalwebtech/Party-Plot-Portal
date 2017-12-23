@@ -17,7 +17,7 @@
               <div class="text">
                 <h4>{{ $retrive->title }}</h4>
                 <p>{{ strip_tags($retrive->description) }}</p>
-                <a href="#" class="btn view">view</a> </div>
+                <a href="<?php echo url('/')."/party-plot/list/"?>{{ $retrive->id }}" class="btn view">view</a> </div>
             </div>
           </div>
         </div>

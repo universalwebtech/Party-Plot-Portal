@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Models\Partyplot;
+use App\Models\Category;
 //use Backpack\Settings\app\Models\Setting;
 
 class PartyPlotController extends CrudController {
@@ -47,11 +48,23 @@ class PartyPlotController extends CrudController {
         return view('front.party_plot.party-plot-search');
     } 	
 
-	public function list() {	
-        return view('front.party_plot.party-plot-list');
+	public function list($id) {	
+
+		$partyplotlistData = Partyplot::where('status', 1)->where('category_id', $id)->get();
+        $categoryData = Category::where('status', 1)->where('id',$id)->get();
+		$view = array(
+            'category' => $categoryData,
+			'partyplot'=>$partyplotlistData
+		);
+        return view('front.party_plot.party-plot-list',$view);
     } 	
 	
-	public function detail() {	
-        return view('front.party_plot.party-plot-detail');
+	public function detail($id) {
+
+		$partyplotData = Partyplot::where('status', 1)->where('id', $id)->get();
+		$view = array(
+			'partyplotdetail'=>$partyplotData
+		);
+        return view('front.party_plot.party-plot-detail',$view);
     } 	
 }

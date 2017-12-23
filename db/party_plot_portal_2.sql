@@ -1,13 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2017 at 08:25 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: Dec 23, 2017 at 06:27 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +22,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `party_plot_portal_2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `advertisement`
+--
+
+CREATE TABLE `advertisement` (
+  `id` int(10) NOT NULL,
+  `title` text NOT NULL,
+  `desc` text,
+  `image` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `advertisement`
+--
+
+INSERT INTO `advertisement` (`id`, `title`, `desc`, `image`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Universal Webtech Softwer Based Company', '<p>wetrewqrwer</p>\r\n', 'uploads/c5bc4015f9dce32594124f9761de2884.jpg', '2017-12-04 13:36:35', '2017-12-04 13:55:12', NULL),
+(2, 'My test advertisement', '<p>This is test advertisement<br />\r\n&nbsp;</p>\r\n', 'uploads/0710c42ce1d65a8d41c121584738f53d.jpg', '2017-12-04 13:56:36', '2017-12-04 13:56:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -1145,6 +1172,34 @@ INSERT INTO `categories` (`id`, `parent_id`, `lft`, `rgt`, `depth`, `name`, `slu
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `title` varchar(30) NOT NULL,
+  `description` text NOT NULL,
+  `image` text NOT NULL,
+  `display_on_home` int(11) NOT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `title`, `description`, `image`, `display_on_home`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(5, 'Wedding & Marriage Reception, ', '<p>We provide a professional dignissim at cursus elefeind norma arcu. Pellentesque accumsan est in tempus etos ullamcorper sem quam suscipit lacus maecenas tortor. Suspendisse gravida ornare non mattis velit rutrum modest.</p>\r\n', 'uploads/ee64790286196f133c087e2d6ad14680.jpg', 0, 1, '2017-12-07 07:41:51', '2017-12-07 07:59:48', NULL),
+(6, 'Best Party Plots', '<p>It is a long established fact that a reader will be distracted</p>\r\n', '', 1, 1, '2017-12-07 07:53:04', '2017-12-07 07:53:04', NULL),
+(7, 'Resorts near Ahmedabad', '<p>It is a long established fact that a reader will be distracted</p>\r\n', '', 1, 1, '2017-12-07 07:53:27', '2017-12-07 07:53:27', NULL),
+(8, 'thegardenpartyplots', '<p>It is a long established fact that a reader will be distracted</p>\r\n', '', 1, 1, '2017-12-07 07:53:51', '2017-12-21 12:27:45', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `menu_items`
 --
 
@@ -1328,10 +1383,51 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `template`, `name`, `title`, `slug`, `content`, `extras`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'simple', 'Home', 'Home', 'home', '<p>This is test content</p>\r\n', NULL, '2017-11-30 12:35:12', '2017-11-30 13:14:10', NULL),
+(1, 'simple', 'Home', 'Home', 'home', NULL, NULL, '2017-11-30 12:35:12', '2017-12-18 12:33:14', NULL),
 (2, 'simple', 'About Us', 'About Us', 'about-us', '<p>About us content</p>\r\n', NULL, '2017-11-30 13:13:59', '2017-11-30 13:13:59', NULL),
 (3, 'simple', 'View Party Plot', 'View Party Plot', 'view-party-plot', '<p>View Party Plot content</p>\r\n', NULL, '2017-11-30 13:15:26', '2017-11-30 13:15:26', NULL),
 (4, 'simple', 'Contact Us', 'Contact Us', 'contact-us', '<p>Content Us content....</p>\r\n', NULL, '2017-11-30 13:17:22', '2017-11-30 13:17:22', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `party_plot`
+--
+
+CREATE TABLE `party_plot` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `description` longtext,
+  `address` varchar(255) NOT NULL,
+  `ideal_for` varchar(255) NOT NULL,
+  `min-capacity` int(11) NOT NULL,
+  `mx-capacity` int(11) NOT NULL,
+  `landmark` varchar(50) DEFAULT NULL,
+  `contact_name` varchar(50) NOT NULL,
+  `contact_email` varchar(100) NOT NULL,
+  `contact_number` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `map` longtext,
+  `approach` longtext,
+  `entrance_and_outside` longtext,
+  `ambiance` longtext,
+  `food_and_services_provided` longtext,
+  `anything_special_about_the_place` longtext,
+  `image` varchar(255) DEFAULT NULL,
+  `status` smallint(6) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `party_plot`
+--
+
+INSERT INTO `party_plot` (`id`, `name`, `category_id`, `description`, `address`, `ideal_for`, `min-capacity`, `mx-capacity`, `landmark`, `contact_name`, `contact_email`, `contact_number`, `price`, `map`, `approach`, `entrance_and_outside`, `ambiance`, `food_and_services_provided`, `anything_special_about_the_place`, `image`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'tes', 8, 'tetsetest setst', 'test etse tsetsttest', 'Birthday Party', 50, 250, NULL, 't3te', 'test@test.fimn', 2147483647, 220000, 'wetq wet tewtwetqet', 'weq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe t', 'weq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe t', 'weq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe t', 'weq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe t', 'weq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe tweq we twetwettwe tewt twe tqwet tqtwetewtet t twe twe t', '291eddc0aed96b9617273b4da3267221.jpg', 1, '2017-12-20 12:52:14', '2017-12-21 12:54:34', NULL),
+(2, 'vishala', 8, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 'radhanagar soc,  Nr. Mangleshwar mahadev, Ghodasar, Ahmedabad-380050', 'Kitty Party', 1100, 3000, 'Manginagar', 'poojan', 'mca.poojan@gmail.com', 2147483647, 500, NULL, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 'bdf5ed121b65fc03edaf911588f3c794.jpg', 1, '2017-12-21 12:57:55', '2017-12-21 12:58:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -1344,6 +1440,13 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('mehul25190@gmail.com', '$2y$10$3wyBqnqE9Uodg53dAHJq5OMcrcWTV6ml0BuD7m.9UBSdb8ry74no2', '2017-12-19 12:04:05');
 
 -- --------------------------------------------------------
 
@@ -1367,7 +1470,10 @@ INSERT INTO `permissions` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (4, 'Advertisement', '2017-11-30 12:27:13', '2017-11-30 12:27:13'),
 (5, 'Menu', '2017-11-30 12:27:44', '2017-11-30 12:27:44'),
 (6, 'Pages', '2017-11-30 12:28:30', '2017-11-30 12:28:30'),
-(7, 'Party Plot', '2017-11-30 12:29:09', '2017-11-30 12:29:09');
+(7, 'Party Plot', '2017-11-30 12:29:09', '2017-11-30 12:29:09'),
+(8, 'Testimonial', '2017-12-18 13:02:18', '2017-12-18 13:02:18'),
+(9, 'Slider', '2017-12-18 13:27:23', '2017-12-18 13:27:23'),
+(10, 'Party Plot Category', '2017-12-18 13:29:11', '2017-12-18 13:29:11');
 
 -- --------------------------------------------------------
 
@@ -1396,7 +1502,13 @@ INSERT INTO `permission_roles` (`permission_id`, `role_id`) VALUES
 (6, 2),
 (7, 1),
 (7, 2),
-(7, 3);
+(7, 3),
+(8, 1),
+(8, 2),
+(9, 1),
+(9, 2),
+(10, 1),
+(10, 2);
 
 -- --------------------------------------------------------
 
@@ -1429,7 +1541,8 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Super Admin', '2017-11-30 12:15:10', '2017-11-30 12:15:10'),
 (2, 'Admin', '2017-11-30 12:15:23', '2017-11-30 12:15:23'),
-(3, 'Agent', '2017-11-30 12:15:31', '2017-11-30 12:15:31');
+(3, 'Agent', '2017-11-30 12:15:31', '2017-11-30 12:15:31'),
+(4, 'Party Plot Owner', '2017-12-08 13:26:13', '2017-12-08 13:26:13');
 
 -- --------------------------------------------------------
 
@@ -1448,8 +1561,12 @@ CREATE TABLE `role_users` (
 
 INSERT INTO `role_users` (`role_id`, `user_id`) VALUES
 (1, 1),
+(1, 5),
 (2, 2),
-(3, 3);
+(3, 3),
+(4, 4),
+(4, 6),
+(4, 7);
 
 -- --------------------------------------------------------
 
@@ -1478,6 +1595,34 @@ INSERT INTO `settings` (`id`, `key`, `name`, `description`, `value`, `field`, `a
 (2, 'contact_cc', 'Contact form CC field', 'Email adresses separated by comma, to be included as CC in the email sent by the contact form.', '', '{\"name\":\"value\",\"label\":\"Value\",\"type\":\"text\"}', 1, NULL, NULL),
 (3, 'contact_bcc', 'Contact form BCC field', 'Email adresses separated by comma, to be included as BCC in the email sent by the contact form.', '', '{\"name\":\"value\",\"label\":\"Value\",\"type\":\"email\"}', 1, NULL, NULL),
 (4, 'motto', 'Motto', 'Website motto', 'this is the value', '{\"name\":\"value\",\"label\":\"Value\", \"title\":\"Motto value\" ,\"type\":\"textarea\"}', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slider`
+--
+
+CREATE TABLE `slider` (
+  `id` int(10) NOT NULL,
+  `title` text NOT NULL,
+  `sub_title` longtext NOT NULL,
+  `desc` text,
+  `read_more` varchar(255) DEFAULT NULL,
+  `image` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`id`, `title`, `sub_title`, `desc`, `read_more`, `image`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(2, 'TTesSttt', '<p>LOREM IPSUM DOLOR<br />\r\nsit amet</p>\r\n', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n', 'http://google.com', '//0ca1c14e13505cb8caaea0cfb3e6ca2c.jpg', 1, '2017-12-02 12:54:52', '2017-12-17 14:18:19', NULL),
+(4, 'Slide 1', '<p>LOREM IPSUM DOLOR<br />\r\nsit amet</p>\r\n', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n', NULL, '//b1cb5959a3b7768e67026b307bf3563a.jpg', 1, '2017-12-02 14:11:55', '2017-12-17 14:21:59', NULL),
+(5, 'fdsfsdfsdff', '<p>LOREM IPSUM DOLOR<br />\r\nsit amet</p>\r\n', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\r\n', 'dsfsdfsdfs', '//ff2699d87c599dbff556f233e268c2d1.jpg', 1, '2017-12-04 12:45:21', '2017-12-17 14:22:28', NULL);
 
 -- --------------------------------------------------------
 
@@ -1524,14 +1669,33 @@ INSERT INTO `tags` (`id`, `name`, `slug`, `created_at`, `updated_at`, `deleted_a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `testimonial`
+--
+
+CREATE TABLE `testimonial` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `status` smallint(6) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mobile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `confirmation_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1541,14 +1705,24 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'mehul25190@gmail.com', '$2y$10$XFUhj6Fl3SidjGWzqqJvRuJLhJCf5r7tLDwhRMMbAnv0vri3/mKIK', 'UamCgKiqRrZCkn5QgbcWUEh4ynQDOZozVbdkxQIA7FGQfWXnon2HRD6CJowP', '2017-11-30 12:14:16', '2017-11-30 12:29:59'),
-(2, 'Admin', 'admin@admin.com', '$2y$10$KvS6NZ4RjvK70BFHit0V2OdI9JZkZVlnfGRqtr4svvx2D2/CmnETy', 'HZEY41yxm4pUS5n8mPEaiPuqKvjRUec9kjZTZHtS2pgpcl6QwMmFux8HP4yx', '2017-11-30 12:30:24', '2017-11-30 12:30:24'),
-(3, 'Agent', 'agent@agent.com', '$2y$10$7sZgbR2d9vGFcIYLdoqGzOjMeEzKDp6F4A9ngP3laj4D.uTmmWfiG', NULL, '2017-11-30 12:30:51', '2017-11-30 12:30:51');
+INSERT INTO `users` (`id`, `name`, `mobile`, `email`, `password`, `confirmation_code`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Super Admin', NULL, 'mehul25190@gmail.com', '$2y$10$XFUhj6Fl3SidjGWzqqJvRuJLhJCf5r7tLDwhRMMbAnv0vri3/mKIK', NULL, 'cxJzmVPmHRnrOavocUbeUrIo8ThxzNjnau2M799F5EMlPJP7uDWVYAi2Zjc7', '2017-11-30 12:14:16', '2017-11-30 12:29:59'),
+(2, 'Admin', NULL, 'admin@admin.com', '$2y$10$KvS6NZ4RjvK70BFHit0V2OdI9JZkZVlnfGRqtr4svvx2D2/CmnETy', NULL, 'VQXAiyQ9naBFVzlerjAiT1ILvRqc0EsOD9N7zb7gLS3AJIwJLdPZuhQtlIy8', '2017-11-30 12:30:24', '2017-11-30 12:30:24'),
+(3, 'Agent', NULL, 'agent@agent.com', '$2y$10$7sZgbR2d9vGFcIYLdoqGzOjMeEzKDp6F4A9ngP3laj4D.uTmmWfiG', NULL, 'fYGJUkHZiy9pJ6kTu3JXbYT873B2YCm7l00zFPLZQIn9CqsEGm443NPLZsmo', '2017-11-30 12:30:51', '2017-11-30 12:30:51'),
+(4, 'test1', '1111111', 'test@test.com', '$2y$10$KvS6NZ4RjvK70BFHit0V2OdI9JZkZVlnfGRqtr4svvx2D2/CmnETy', NULL, 'mWchWLVIQnIUfs9t5SrVnZBvpmgepwSc5Rjy0ierIQeTEYysYSm02oDadfka', '2017-12-08 13:26:51', '2017-12-17 13:54:34'),
+(5, 'poojan', NULL, 'poojan@party.com', '$2y$10$TdsJOlIvNMuVlCgYYiWROe/pPNVy7OLcrGucW6AzdAfYMmyaHjrkq', NULL, NULL, '2017-12-11 13:32:14', '2017-12-11 13:32:14'),
+(6, 'poojan', '1231231312', 'poojan@poojan.com', '$2y$10$G/ld5LajTstgh7vbfa/.XOPENqQe79DZDECJ1p/R9.EI6UaMeKUhu', NULL, 'w7TE203QsY8KBWSoMCFFikLKKyUwLSssG6hp3K3ie5rJgqlHN0CGIBN6fD7Z', '2017-12-11 13:55:40', '2017-12-11 13:55:40'),
+(7, 'mel', '1234567894', 'melvin@test.com', '$2y$10$39MKgdSgNa0js3RZBYxIrOnELcap0XLllyNmweOn8f9bacSm1xk4m', NULL, 'a5CtT43MbmFepWePbgzf4wAjxD8qB5EN5MtOlD1NwIPJcphxaTSae2GZ44wS', '2017-12-11 14:56:46', '2017-12-11 14:56:46');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `advertisement`
+--
+ALTER TABLE `advertisement`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `articles`
@@ -1568,6 +1742,12 @@ ALTER TABLE `article_tag`
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `categories_slug_unique` (`slug`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `menu_items`
@@ -1609,6 +1789,12 @@ ALTER TABLE `monster_tag`
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `party_plot`
+--
+ALTER TABLE `party_plot`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1660,11 +1846,23 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `tags_slug_unique` (`slug`);
+
+--
+-- Indexes for table `testimonial`
+--
+ALTER TABLE `testimonial`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -1678,80 +1876,125 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `advertisement`
+--
+ALTER TABLE `advertisement`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1032;
+
 --
 -- AUTO_INCREMENT for table `article_tag`
 --
 ALTER TABLE `article_tag`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `monsters`
 --
 ALTER TABLE `monsters`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `monster_article`
 --
 ALTER TABLE `monster_article`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `monster_category`
 --
 ALTER TABLE `monster_category`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `monster_tag`
 --
 ALTER TABLE `monster_tag`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `party_plot`
+--
+ALTER TABLE `party_plot`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `testimonial`
+--
+ALTER TABLE `testimonial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- Constraints for dumped tables
 --
@@ -1776,6 +2019,8 @@ ALTER TABLE `permission_users`
 ALTER TABLE `role_users`
   ADD CONSTRAINT `role_users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+SET FOREIGN_KEY_CHECKS=1;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

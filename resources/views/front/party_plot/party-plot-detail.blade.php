@@ -4,6 +4,7 @@
 <body>
 <div class="wrapper">
   @include('front.includes.header')
+  @foreach ($partyplotdetail as $retrive)
  <section class="listing_content">
     <div class="container">
       <div class="row">
@@ -18,7 +19,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="plot_head">
-            <h4><i class="fa fa-th-large"></i>Lorem Ipsum Dolor Sit</h4>
+            <h4><i class="fa fa-th-large"></i>{{ $retrive->name }}</h4>
           </div>
         </div>
       </div>
@@ -38,7 +39,7 @@
             </ul>
           </div>
           <div class="detail_view">
-            <div class="large_image"> <a href="#"><img src="images/detail_image.jpg" alt="image view" class="img-responsive"/></a> </div>
+            <div class="large_image"> <a href="#"><img src="<?php echo url('/')."/party_plot/"?>{{ $retrive->image }}" alt="plot" class="img-responsive"></a></a> </div>
             <ul class="list-inline small_thumb">
               <li class="col-lg-2 col-sm-2 col-md-2 col-xs-2"><a href="#"><img src="images/small_thumb_image.jpg" alt="thumb_image"/></a></li>
               <li class="col-lg-2 col-sm-2 col-md-2 col-xs-2"><a href="#"><img src="images/small_thumb_image.jpg" alt="thumb_image"/></a></li>
@@ -60,7 +61,7 @@
                   <a href="#" class="pull-right send_friend"><i class="fa fa-envelope"></i> Send to a friend</a>
                   <div class="clear-fix"></div>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>{{ $retrive->anything_special_about_the_place }}</p>
               </div>
             </div>
             <div class="review" id="reviews">
@@ -88,7 +89,7 @@
                   <a href="#" class="pull-right btn">Write a Review</a>
                   <div class="clear-fix"></div>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>{{ $retrive->ambiance }}</p>
               </div>
             </div>
             <div class="Availability" id="availability">
@@ -154,6 +155,7 @@
       </div>
     </div>
   </section>
+  @endforeach
   @include('front.includes.contact')
 
   @include('front.includes.footer')
