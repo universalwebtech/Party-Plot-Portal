@@ -48,13 +48,25 @@ class PartyplotCrudController extends CrudController
         // SIMPLE tab
         // ----------
 		$this->crud->addField([
-            'label' => 'Select Company',
+            'label' => 'Select Category',
             'type' => 'select',
             'name' => 'category_id',
             'entity' => 'category',
             'attribute' => 'title',
             'model' => "App\Models\Category",
         ]);
+
+		$this->crud->addField([
+            'label' => 'Select Party Plot Owner',
+            'type' => 'select',
+            'name' => 'user_id',
+            'entity' => 'user',
+            'attribute' => 'name',
+            'model' => "App\User",
+			'datasource' => url("admin/cities/getall"), // url to controller search function (with /{id} should return model)
+            'initialdatasource' => url("admin/cities/getone"), // url to controller search function (with /{id} should return model)
+        ]);	
+		
 		
         $this->crud->addField([
             'name'  => 'name',

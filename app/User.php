@@ -43,4 +43,15 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+	
+	public function party_plot_owner()
+    {
+        //return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\User1')->using('App\UserRole')->wherePivot('role_id', 1);
+		return $this->belongsToMany('App\User')->using('App\UserRole');
+		return $this->belongsTo('App\User')->withDefault([
+        'name' => 'Guest Author',
+		]);
+    }
 }
+
