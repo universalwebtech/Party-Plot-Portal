@@ -7,6 +7,7 @@ use App\Http\Requests\PartyplotRequest as StoreRequest;
 use App\Http\Requests\PartyplotRequest as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Models\Partyplot;
+use App\User;
 
 class PartyplotCrudController extends CrudController
 {
@@ -55,16 +56,24 @@ class PartyplotCrudController extends CrudController
             'attribute' => 'title',
             'model' => "App\Models\Category",
         ]);
+ 
+        $userData=user::leftJoin('role_users', 'id', '=', 'role_users.user_id')->select('name', 'id')->where('role_id',4)->get();
+        $name = array_column($userData->toArray(), 'name');
+        $id = array_column($userData->toArray(), 'id');
+       $datafinal =  array_combine($id, $name);
+      
 
-		$this->crud->addField([
+
+        $this->crud->addField([
             'label' => 'Select Party Plot Owner',
-            'type' => 'select',
+            'type' => 'select_from_array',
             'name' => 'user_id',
-            'entity' => 'user',
+            'options' => $datafinal,
+            /*'entity' => 'user',
             'attribute' => 'name',
             'model' => "App\User",
 			'datasource' => url("admin/cities/getall"), // url to controller search function (with /{id} should return model)
-            'initialdatasource' => url("admin/cities/getone"), // url to controller search function (with /{id} should return model)
+            'initialdatasource' => url("admin/cities/getone"), // url to controller search function (with /{id} should return model)*/
         ]);	
 		
 		
