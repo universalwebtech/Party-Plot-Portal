@@ -31,6 +31,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web','role'], 'namespace' =
 	Route::get('dashboard',  'HomeController@dashboard');
 	CRUD::resource('partyplot', 'PartyplotCrudController');
 	CRUD::resource('slider', 'SliderCrudController');
+	CRUD::resource('gallery', 'PartyplotgalleryCrudController');
+	Route::get('gallery/create/{partyPlotId}', 'PartyplotgalleryCrudController@create');
+	Route::get('gallery/index/{partyPlotId}', 'PartyplotgalleryCrudController@index');
 	CRUD::resource('advertisement', 'AdvertisementCrudController');
     CRUD::resource('testimonial', 'TestimonialCrudController');
     CRUD::resource('category', 'CategoryCrudController');

@@ -80,21 +80,7 @@ class Partyplot extends Model
     |--------------------------------------------------------------------------
     */
     
-   /*public function getFullName(){
-       return $this->first_name.' '.$this->last_name;
-   }
    
-   public function getLocation(){
-       $tempArr = Array();
-       if($this->city != ''){
-           array_push($tempArr, $this->city);
-       }
-       if($this->country != ''){
-           array_push($tempArr, $this->country);
-       }
-       
-       return implode(',', $tempArr);
-   }*/
    public function setImageAttribute($value)
     {
         $attribute_name = "image";

@@ -1,0 +1,1 @@
+<a href="{{ url('admin/gallery/index', [$entry->getKey()]) }}" class="btn btn-xs btn-default"><i class="fa fa-file-text-o"></i> {{trans('Gallery')}}</a>
