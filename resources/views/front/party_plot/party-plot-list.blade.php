@@ -4,6 +4,7 @@
 <body>
 <div class="wrapper">
   @include('front.includes.header')
+   @foreach ($category as $categoryData)
    <section class="listing_content">
     <div class="container">
       <div class="row">
@@ -18,7 +19,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="plot_head">
-            <h4><i class="fa fa-th-large"></i>Party Plots & Banquet Halls in <span>Ahmedabad, Gujarat</span></h4>
+            <h4><i class="fa fa-th-large"></i>{{$categoryData->title}}</span></h4>
           </div>
         </div>
       </div>
@@ -181,15 +182,17 @@
           </div>
           <div class="row listing_view">
             <ul>
+              @if (count($partyplot) === 1)
+              @foreach ($partyplot as $retrive)
               <li class="col-lg-12">
                 <div class="thumbnail">
-                  <div class="col-lg-4 col-md-4 col-sm-4"> <a href="#"> <img src="{{ asset('images/plot.jpg') }}" alt="plot" class="img-responsive"></a> </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4"> <a href="<?php echo url('/')."/party-plot/detail/"?>{{ $retrive->id }}"> <img src="<?php echo url('/')."/party_plot/"?>{{ $retrive->image }}" alt="plot" class="img-responsive"></a> </div>
                   <div class="col-lg-8 padd_left_0 col-md-8 col-sm-8">
                     <div class="caption">
-                      <h5>Lorem Ipsum dolor sit</h5>
+                      <h5>{{ $retrive->name }}</h5>
                       <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
-                      <p><i class="fa fa-map-marker"></i>USA</p>
-                      <p class="short_desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                      <p><a href="https://www.google.com/maps/search/?api=1&query={{ $retrive->address}}"><i class="fa fa-map-marker"></i></a>USA</p>
+                      <p class="short_desc">{{ $retrive->description }}</p>
                     </div>
                     <a href="#" class="btn book" data-toggle="modal" data-target="#myModal">Get Quotes</a>
                     <div class="modal fade" id="myModal" role="dialog">
@@ -239,13 +242,17 @@
                   <div class="clearfix"></div>
                 </div>
               </li>
+               @endforeach
+              @else
+                <p>This type of party plot is not available.</p>
+              @endif
             </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
- 
+ @endforeach
   @include('front.includes.footer')
  </div>
 <!-- =================== WEB JS BOC ==================== --> 

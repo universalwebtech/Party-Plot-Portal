@@ -5,31 +5,32 @@
         <div class="advertisement"> <img src="images/adv.jpg" class="img-responsive" alt=""/> <img src="images/adv1.jpg" class="img-responsive" alt=""/> <img src="images/adv.jpg" class="img-responsive" alt=""/> <img src="images/adv1.jpg" class="img-responsive" alt=""/> <img src="images/adv1.jpg" class="img-responsive" alt=""/> <img src="images/adv1.jpg" class="img-responsive" alt=""/> <img src="images/adv1.jpg" class="img-responsive" alt=""/> <img src="images/adv1.jpg" class="img-responsive" alt=""/></div>
       </div>
       <div class="col-lg-10 col-md-10 col-sm-12">
+        @foreach ($category as $categorychid)
         <div class="plot_contain">
           <div class="plot_head">
-            <h4><i class="fa fa-th-large"></i>Party Plots & Banquet Halls in <span>Ahmedabad, Gujarat</span></h4>
-            <p class="text-right view_all"><a href="#">View All<i class="fa fa-angle-right"></i></a></p>
+            <h4><i class="fa fa-th-large"></i>{{ $categorychid->title }}</h4>
+            <p class="text-right view_all"><a href="<?php echo url('/')."/party-plot/list/"?>{{ $categorychid->id }}">View All<i class="fa fa-angle-right"></i></a></p>
             <div class="clearfix"></div>
           </div>
           <div class="row">
             <ul>
             
               @foreach ($partyplot as $retrive)
+              @if ($retrive->category_id == $categorychid->id)
               <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-                <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
+                <div class="thumbnail"> <a href="<?php echo url('/')."/party-plot/detail/"?>{{ $retrive->id }}"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
                   <div class="caption">
                     <h5>{{ $retrive->name }}</h5>
                     <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
-                    <p><a href="https://www.google.com/maps/search/?api=1&query={{ $retrive->address}}"><i class="fa fa-map-marker"></i>INR</p>
-                    <p class="short_desc">{{ $retrive->approach}}</p>
+                    <p><a href="https://www.google.com/maps/search/?api=1&query={{ $retrive->address}}"><i class="fa fa-map-marker"></i>Location</p>
+                    <p class="short_desc">{{ str_limit($retrive->description, 100)}}</p>
                   </div>
                   </a>
                   <div class="price"> <a href="#" class="btn book pull-right" data-toggle="modal" data-target="#myModal">Get Quotes</a>
                     <p><span>$</span>{{ $retrive->price }}</p>
                   </div>
-                  <!-- <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog"> 
-                      
                       Modal content
                       <div class="modal-content">
                         <div class="modal-header">
@@ -115,9 +116,12 @@
                       </div>
                     </div>
                   </div>
-                                  </div> -->
+                </div>
               </li>
-               @endforeach
+              @else
+                <p>This type of party plot is not available.</p>
+              @endif
+              @endforeach
               <!-- <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
                 <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
                   <div class="caption">
@@ -149,7 +153,8 @@
             </ul>
           </div>
         </div>
-        <div class="plot_contain">
+        @endforeach
+        <!-- <div class="plot_contain">
           <div class="plot_head">
             <h4><i class="fa fa-th-large"></i>Best Party <span>Plots</span></h4>
             <p class="text-right view_all"><a href="#">View All<i class="fa fa-angle-right"></i></a></p>
@@ -202,8 +207,8 @@
               </li>
             </ul>
           </div>
-        </div>
-        <div class="plot_contain">
+        </div> -->
+        <!-- <div class="plot_contain">
           <div class="plot_head">
             <h4><i class="fa fa-th-large"></i>Wedding & Marriage Reception,<span> Banquet Halls</span></h4>
             <p class="text-right view_all"><a href="#">View All<i class="fa fa-angle-right"></i></a></p>
@@ -256,61 +261,61 @@
               </li>
             </ul>
           </div>
-        </div>
-        <div class="plot_contain">
-          <div class="plot_head">
-            <h4><i class="fa fa-th-large"></i>The Garden Party <span>Plots</span></h4>
-            <p class="text-right view_all"><a href="#">View All<i class="fa fa-angle-right"></i></a></p>
-            <div class="clearfix"></div>
-          </div>
-          <div class="row">
-            <ul>
-              <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-                <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
-                  <div class="caption">
-                    <h5>Lorem Ipsum dolor sit</h5>
-                    <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
-                    <p><i class="fa fa-map-marker"></i>USA</p>
-                    <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
-                  </div>
-                  </a>
-                  <div class="price"> <a href="#" class="btn book pull-right">Get Quotes</a>
-                    <p><span>$</span>4582</p>
-                  </div>
-                </div>
-              </li>
-              <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-                <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
-                  <div class="caption">
-                    <h5>Lorem Ipsum dolor sit</h5>
-                    <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
-                    <p><i class="fa fa-map-marker"></i>USA</p>
-                    <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
-                  </div>
-                  </a>
-                  <div class="price"> <a href="#" class="btn book pull-right">Get Quotes</a>
-                    <p><span>$</span>4582</p>
-                  </div>
-                </div>
-              </li>
-              <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-                <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
-                  <div class="caption">
-                    <h5>Lorem Ipsum dolor sit</h5>
-                    <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
-                    <p><i class="fa fa-map-marker"></i>USA</p>
-                    <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
-                  </div>
-                  </a>
-                  <div class="price"> <a href="#" class="btn book pull-right">Get Quotes</a>
-                    <p><span>$</span>4582</p>
-                  </div>
-                </div>
-              </li>
-              </li>
-            </ul>
-          </div>
-        </div>
+        </div> -->
+       <!--  <div class="plot_contain">
+         <div class="plot_head">
+           <h4><i class="fa fa-th-large"></i>The Garden Party <span>Plots</span></h4>
+           <p class="text-right view_all"><a href="#">View All<i class="fa fa-angle-right"></i></a></p>
+           <div class="clearfix"></div>
+         </div>
+         <div class="row">
+           <ul>
+             <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+               <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
+                 <div class="caption">
+                   <h5>Lorem Ipsum dolor sit</h5>
+                   <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
+                   <p><i class="fa fa-map-marker"></i>USA</p>
+                   <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
+                 </div>
+                 </a>
+                 <div class="price"> <a href="#" class="btn book pull-right">Get Quotes</a>
+                   <p><span>$</span>4582</p>
+                 </div>
+               </div>
+             </li>
+             <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+               <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
+                 <div class="caption">
+                   <h5>Lorem Ipsum dolor sit</h5>
+                   <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
+                   <p><i class="fa fa-map-marker"></i>USA</p>
+                   <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
+                 </div>
+                 </a>
+                 <div class="price"> <a href="#" class="btn book pull-right">Get Quotes</a>
+                   <p><span>$</span>4582</p>
+                 </div>
+               </div>
+             </li>
+             <li class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+               <div class="thumbnail"> <a href="#"> <img src="images/plot.jpg" alt="plot" class="img-responsive">
+                 <div class="caption">
+                   <h5>Lorem Ipsum dolor sit</h5>
+                   <div class="rating pull-right"> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><span> (15 reviews)</span> </div>
+                   <p><i class="fa fa-map-marker"></i>USA</p>
+                   <p class="short_desc">Lorem ipsum dolor sit amet, consectetur adips elit. Nunc congue diam sit amet sem tristque utrum sem ornare.</p>
+                 </div>
+                 </a>
+                 <div class="price"> <a href="#" class="btn book pull-right">Get Quotes</a>
+                   <p><span>$</span>4582</p>
+                 </div>
+               </div>
+             </li>
+             </li>
+           </ul>
+         </div>
+       </div> -->
       </div>
     </div>
   </div>
