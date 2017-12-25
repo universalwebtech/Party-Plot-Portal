@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\SliderRequest as StoreRequest;
+use App\Http\Requests\Advertisement as StoreRequest;
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\SliderRequest as UpdateRequest;
+use App\Http\Requests\Advertisement as UpdateRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class AdvertisementCrudController extends CrudController

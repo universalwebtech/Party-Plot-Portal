@@ -22,9 +22,26 @@ class SliderRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|min:5|max:255',
-        ];
+		switch($this->method())
+		{
+			case 'POST':
+			{
+				return [
+					'title' => 'required|min:5|max:255',
+					'sub_title' => 'required|min:5|max:255',
+					'desc' => 'required|min:5|max:255',
+					'image' => 'required|regex:/^data:image/',
+				];
+			}
+			case 'PUT':
+			{
+				return [
+					'title' => 'required|min:5|max:255',
+					'sub_title' => 'required|min:5|max:255',
+					'desc' => 'required|min:5|max:255',
+				];
+			}
+		}
     }
 
     /**

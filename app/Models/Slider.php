@@ -29,7 +29,7 @@ class Slider extends Model
         $attribute_name = "image";
         $disk = "slider";
         $destination_path = "/";
-
+	
         // if the image was erased
         if ($value==null) {
             // delete the image from disk
@@ -44,6 +44,7 @@ class Slider extends Model
         {
             // 0. Make the image
             $image = \Image::make($value);
+			
             // 1. Generate a filename.
             $filename = md5($value.time()).'.jpg';
             // 2. Store the image on disk.

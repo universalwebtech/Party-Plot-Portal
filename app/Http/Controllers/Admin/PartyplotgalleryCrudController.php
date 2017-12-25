@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\PartyPlotGallery as StoreRequest;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
+
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\PartyPlotGallery as UpdateRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Requests\PartyPlotGallery as StoreRequest;
+
 use App\Models\PartyPlotGallery;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request AS INPUT_REQUEST;
 
+
+
 class PartyplotgalleryCrudController extends CrudController
 {
-	
+	public $partyPlotId = '';
     public function setup()
     {
         /*
@@ -22,11 +26,10 @@ class PartyplotgalleryCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-		
+		$partyPlotId = \Route::current()->parameter('partyPlotId');
         $this->crud->setModel('App\Models\PartyPlotGallery');
         $this->crud->setRoute(config('backpack.base.route_prefix').'/gallery');
         $this->crud->setEntityNameStrings('Party Plot Gallery', 'Party Plot Gallery');
-
         /*
         |--------------------------------------------------------------------------
         | BASIC CRUD INFORMATION
@@ -78,6 +81,8 @@ class PartyplotgalleryCrudController extends CrudController
 		$this->crud->removeButtonFromStack('create', 'top');
 		$this->crud->addButtonFromView('top', 'createpartyplotgallery', 'createpartyplotgallery');
 
+		$partyPlotId = $partyPlotId;
+		$this->crud->addClause('where', 'party_plot_id', '=', 2);
 
     }
 
@@ -99,16 +104,12 @@ class PartyplotgalleryCrudController extends CrudController
     public function index($partyPlotId = '') {
 		global $request;
 		$request->session()->put('partyPlotId', $partyPlotId);
-        if ($partyPlotId) {
-            $this->crud->addClause('where', 'party_plot_id5', '=', $partyPlotId);
-        }
-		return parent::index($partyPlotId);
-		//return view ( 'vendor.backpack.base.list', $this->data );
+		return parent::index();
     }
 	
 	public function create($partyPlotId = '') {
-		global $request;
-		$request->session()->put('partyPlotId', $partyPlotId);
+		//global $request;
+		//$request->session()->put('partyPlotId', $partyPlotId);
         $this->crud->addField([// Hidden
             'name' => 'party_plot_id',
             'type' => 'hidden',
@@ -118,8 +119,9 @@ class PartyplotgalleryCrudController extends CrudController
     }
 	
 	public function edit($id) {  
+		global $request;
 		$partyplot = PartyPlotGallery::where('id', $id)->first();
-		$request->session()->put('partyPlotId', $partyplot->party_plot_gallery);
+		$request->session()->put('partyPlotId', $partyplot->party_plot_id);
 		
         $this->crud->addField([// Hidden
             'name' => 'party_plot_id',

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class TestimonialRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
+class Advertisement extends \Backpack\CRUD\app\Http\Requests\CrudRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,24 @@ class TestimonialRequest extends \Backpack\CRUD\app\Http\Requests\CrudRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required|min:5|max:255',
-			'description' => 'required|min:5|max:255',
-            'designation' => 'required|min:5|max:255',
-        ];
+		switch($this->method())
+		{
+			case 'POST':
+			{
+				return [
+					'title' => 'required|min:5|max:255',
+					'desc' => 'required|min:5|max:255',
+					'image' => 'required|regex:/^data:image/',
+				];
+			}
+			case 'PUT':
+			{
+				return [
+					'title' => 'required|min:5|max:255',
+					'desc' => 'required|min:5|max:255',
+				];
+			}
+		}
     }
 
     /**
