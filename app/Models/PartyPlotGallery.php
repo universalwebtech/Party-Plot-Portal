@@ -29,7 +29,7 @@ class PartyPlotGallery extends Model
     }
 	
 	public function getImage(){
-       return "<img width='50' height='50' src='../../../party_plot_gallery/".$this->image."' />";
+      return "<img width='50' height='50' src='../../../party_plot_gallery/".$this->image."' />";
    }
 	
 	public function setImageAttribute($value)

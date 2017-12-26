@@ -80,9 +80,7 @@ class PartyplotgalleryCrudController extends CrudController
         //$this->addCustomCrudFilters();
 		$this->crud->removeButtonFromStack('create', 'top');
 		$this->crud->addButtonFromView('top', 'createpartyplotgallery', 'createpartyplotgallery');
-
-		$partyPlotId = $partyPlotId;
-		$this->crud->addClause('where', 'party_plot_id', '=', 2);
+        $this->crud->addClause('where', 'party_plot_id', '=', $partyPlotId);
 
     }
 
@@ -131,6 +129,16 @@ class PartyplotgalleryCrudController extends CrudController
         return parent::edit($id);
     }
 	
+     public function search() {
+        global $request;
+        $partyPlotId=$request->session()->pull('partyPlotId');
+        // Sets the parameters from the get request to the variables.
+        // Perform the query using Query Builder
+        $result = PartyPlotGallery::where('party_plot_id', $partyPlotId)->get();
+        $filteredRows= $totalRows=count($result);
+        return $this->crud->getEntriesAsJsonForDatatables($result, $totalRows, $filteredRows);
+        //return $result;
+    }
 	public function destroy($id)
 	{
 		$image = PartyPlotGallery::where('id', $id)->first();
