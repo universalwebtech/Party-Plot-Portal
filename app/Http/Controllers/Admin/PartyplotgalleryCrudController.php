@@ -79,8 +79,10 @@ class PartyplotgalleryCrudController extends CrudController
         // ------ FILTERS
         //$this->addCustomCrudFilters();
 		$this->crud->removeButtonFromStack('create', 'top');
+		$this->crud->removeButton('cancel');
 		$this->crud->addButtonFromView('top', 'createpartyplotgallery', 'createpartyplotgallery');
         $this->crud->addClause('where', 'party_plot_id', '=', $partyPlotId);
+		
 
     }
 
@@ -106,8 +108,8 @@ class PartyplotgalleryCrudController extends CrudController
     }
 	
 	public function create($partyPlotId = '') {
-		//global $request;
-		//$request->session()->put('partyPlotId', $partyPlotId);
+		global $request;
+		$request->session()->put('partyPlotId', $partyPlotId);
         $this->crud->addField([// Hidden
             'name' => 'party_plot_id',
             'type' => 'hidden',

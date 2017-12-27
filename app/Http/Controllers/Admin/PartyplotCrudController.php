@@ -225,8 +225,8 @@ class PartyplotCrudController extends CrudController
         // ------ FILTERS
         //$this->addCustomCrudFilters();
 		
-		$this->crud->addButtonFromView('line', 'partyplotgallerylist', 'partyplotgallerylist');
-		$this->crud->addButtonFromView('line', 'addgalleryimage', 'addgalleryimage');
+		$this->crud->addButtonFromView('line', 'partyplotgallerylist', 'partyplotgallerylist', 'end');
+		$this->crud->addButtonFromView('line', 'addgalleryimage', 'addgalleryimage', 'end');
 
     }
 

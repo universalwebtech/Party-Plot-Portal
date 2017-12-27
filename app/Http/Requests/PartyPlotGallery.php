@@ -23,7 +23,7 @@ class PartyPlotGallery extends \Backpack\CRUD\app\Http\Requests\CrudRequest
     public function rules()
     {
         return [
-            'image' => 'required',
+            'image' => 'required|regex:/^data:image/',
         ];
     }
 
